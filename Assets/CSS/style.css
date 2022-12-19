@@ -1,0 +1,6 @@
+body {
+  background-image: url(../images/bg.jpg);
+}
+body img {
+  height: 50px;
+}

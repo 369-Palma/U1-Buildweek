@@ -4,3 +4,14 @@ window.addEventListener("load", (event) => {
 
 })
 
+window.addEventListener("click", () => {
+
+})
+
+document.querySelector("#bottone1").addEventListener("click", event => {
+    console.log("u clicked")
+
+
+
+
+})

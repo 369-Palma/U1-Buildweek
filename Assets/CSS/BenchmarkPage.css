@@ -2,7 +2,7 @@ body {
   background-image: url(../images/bg.jpg);
   background-size: cover;
   padding: 3%;
-  margin-left: 2em;
+
   color: white;
   text-align: center;
   line-height: 1.5;
@@ -23,7 +23,12 @@ body {
   border: 1px solid #ffffff;
   border-radius: 100px;
   width: 30%;
+  height: 35px;
+
   margin: 2%;
+}
+.benchmarkTitolo {
+  margin-top: 10%;
 }
 .bottoni {
   opacity: 1;

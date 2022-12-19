@@ -8,6 +8,9 @@ body {
   line-height: 1.5;
   font-family: Arial, Helvetica, sans-serif;
 }
+h1 {
+  font-size: 36px;
+}
 
 #logo {
   margin-bottom: 2em;
@@ -24,7 +27,6 @@ body {
   border-radius: 100px;
   width: 30%;
   height: 35px;
-
   margin: 2%;
 }
 .benchmarkTitolo {
@@ -32,8 +34,13 @@ body {
 }
 .bottoni {
   opacity: 1;
-  margin-top: 10%;
+  margin-top: 3%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.numeroDomande {
+  display: flex;
+  flex-direction: wrap;
   justify-content: center;
 }

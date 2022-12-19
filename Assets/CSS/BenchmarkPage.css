@@ -1,0 +1,34 @@
+body {
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  padding: 3%;
+  margin-left: 2em;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#logo {
+  margin-bottom: 2em;
+  height: 12%;
+  width: 12%;
+  display: flex;
+}
+
+.benchmarkBottone {
+  background-color: #00054b;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  width: 30%;
+  margin: 2%;
+}
+.bottoni {
+  opacity: 1;
+  margin-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

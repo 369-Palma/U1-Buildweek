@@ -1,0 +1,14 @@
+body {
+    background-image: url(/Assets/images/bg.jpg);
+    background-size: cover;
+    padding: 3%;
+}
+
+main {
+    text-align: center;
+}
+
+body img {
+    height: 15%;
+    width: 15%;
+}

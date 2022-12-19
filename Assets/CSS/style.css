@@ -1,20 +1,17 @@
 /* BODY */
 
 body {
-    background-image: url(/Assets/images/bg.jpg);
-    background-size: cover;
-    padding: 3%;
-    color: white;
-
+  background-image: url(/Assets/images/bg.jpg);
+  background-size: cover;
+  padding: 3%;
+  color: white;
 }
-
-body header img {
-    height: 15%;
-    width: 15%;
-}
-
-/* MAIN */
 
 main {
-    text-align: center;
+  text-align: center;
+}
+
+body img {
+  height: 15%;
+  width: 15%;
 }

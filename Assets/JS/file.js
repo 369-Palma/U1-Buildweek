@@ -1,8 +1,7 @@
 
-window.addEventListener("load", (event) => {
-    alert("this page is connected")
+// window.addEventListener("load", (event) => {
 
-})
+// })
 
 window.addEventListener("click", () => {
 
@@ -13,5 +12,10 @@ document.querySelector("#bottone1").addEventListener("click", event => {
 
 
 
+
+})
+
+document.querySelector("#input1").addEventListener("change", event => {
+    console.log("u checked ")
 
 })

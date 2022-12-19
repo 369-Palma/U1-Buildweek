@@ -2,13 +2,14 @@ body {
     background-image: url(/Assets/images/bg.jpg);
     background-size: cover;
     padding: 3%;
+    color: white;
 }
 
 main {
     text-align: center;
 }
 
-body img {
+body header img {
     height: 15%;
     width: 15%;
 }

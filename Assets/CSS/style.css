@@ -1,15 +1,20 @@
+/* BODY */
+
 body {
     background-image: url(/Assets/images/bg.jpg);
     background-size: cover;
     padding: 3%;
     color: white;
-}
 
-main {
-    text-align: center;
 }
 
 body header img {
     height: 15%;
     width: 15%;
+}
+
+/* MAIN */
+
+main {
+    text-align: center;
 }

@@ -3,6 +3,8 @@
 
 // })
 
+// button js
+
 const buttonSel = document.querySelector("#bottone1")
 
 
@@ -17,18 +19,11 @@ document.querySelector("#input1").addEventListener("change", event => {
 })
 
 
+// logic change disable to able button
 
-actionButton = () => {
-
-    const buttonSel = document.querySelector("#bottone1")
-    buttonSel.setAttribute("disabled", "")
-    const checkedSel = document.querySelector("#input1").addEventListener("change", event => {
-
-        buttonSel.classList.toggle("off")
-    })
+const checkedSel = document.querySelector("#input1").addEventListener("change", event => {
+    buttonSel.toggleAttribute("disabled")
+})
 
 
 
-
-
-}

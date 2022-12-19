@@ -4,11 +4,15 @@ body {
   background-image: url(/Assets/images/bg.jpg);
   background-size: cover;
   padding: 3%;
+  margin-left: 2em;
   color: white;
-}
-
-main {
   text-align: center;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* MAIN */
+main {
+  text-align: left;
 }
 
 body img {
@@ -16,5 +20,54 @@ body img {
   width: 15%;
 }
 
+<<<<<<< Updated upstream
 
 /* eventi che si attivano dopo clicked button1 */
+=======
+#logo {
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+.titolo p {
+  font-weight: 700px;
+  font-size: 2.5em;
+  line-height: 1em;
+}
+
+.viola {
+  color: #c2128d;
+  margin-bottom: 0.3em;
+  margin-top: 2em;
+}
+.welcome {
+  font-size: 0.65em;
+  font-weight: 200;
+}
+.welcome span {
+  font-weight: 700;
+}
+.listaWelcome {
+  margin-left: 1em;
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+.paragrafo {
+  margin-bottom: 2em;
+}
+.basso {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.celeste {
+  margin-left: 15%;
+  height: 35px;
+  width: 140px;
+  background-color: #00fbfb;
+  color: #0b113b;
+  font-weight: 600;
+  border: 1px solid #11aac5;
+  box-shadow: 0px 0px 40px 5px rgba(0, 251, 251, 0.5);
+}
+>>>>>>> Stashed changes

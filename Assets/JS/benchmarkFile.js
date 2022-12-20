@@ -103,24 +103,91 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+//
+
+// let sbagliate = 0;
+// let giuste = 0;
+
+// function filtro(array) {
+//   questions.filter(answer);
+//   risposte = (array) => {
+//     return array.map((e) => e.correct_answer);
+//   };
+// }
+// console.log(filtro(questions));
+
+//faccio array con dentro stringhe di risposte corrette + risposte incorrette x
+length;
+// faccio una funzione che pushi le stringhe contenute in correct ed incorrect answer dentro a risposte
+function pushRisposte(questions) {
+  let risposte = [];
+  for (let i = 0; i < questions.length; i++) {
+    const risposteCorrette = questions[i].correct_answer;
+    const risposteNonCorrette = questions[i].incorrect_answers;
+    const sommaRisposte = risposteCorrette + risposteNonCorrette;
+    // const risposteNonCorrette = questions[i].incorrect_answers;
+    // const sommaRisposte = risposteNonCorrette.join(RisposteCorrette);
+    risposte.push(sommaRisposte);
+  }
+  console.log(risposte);
+}
+pushRisposte(questions);
+
+// faccio funzione che metta le risposte dentro i button
+
+// controllo che il bottone cliccato abbia una stringa contenuta in correct answer
+// else incorrect answer
+// a seconda del risultato, aumento il contatore delle risposte corrette o incorrette
 
 /*---BOTTONI---*/
+// aggiungiClasseSelected.addEventListener("click", (event) => {
+//   const elementoCliccato = event.target;
+//   elementoCliccato.classList.toggle("selected");
+// });
+
+const aggiungiClasseSelected = (event) => {
+  const elementoCliccato = event.target;
+  elementoCliccato.classList.toggle("selected");
+};
 risposte = () => {
   for (i = 0; i < 3; i++) {
     const newButton = document.createElement("button");
-    newButton.classList.add("bottoneSbagliato");
+    // newButton.classList.add("bottoneSbagliato");
+    newButton.id = "bottoneSbagliato" + i;
+    newButton.classList.add("bottone");
+    newButton.onclick = aggiungiClasseSelected;
     document.getElementById("bottoni").appendChild(newButton);
     newButton.innerHTML = questions[0].incorrect_answers[i];
   }
+
   const newButton = document.createElement("button");
-  newButton.classList.add("bottoneGiusto");
+  // newButton.classList.add("bottoneGiusto");
+  newButton.id = "bottoneGiusto" + i;
+  newButton.classList.add("bottone");
+  newButton.onclick = aggiungiClasseSelected;
   newButton.innerHTML = questions[0].correct_answer;
   document.getElementById("bottoni").appendChild(newButton);
 };
+
+// const questionTemplate = (questions) => `
+// <button id="benchmarkBottone">
+// ${questions.incorrect_answers}
+// </button>
+// `;
+
+// risposte = () => {
+//   for (let i = 0; i < 4; i++) {
+//     const newButton = document.createElement("button");
+//     newButton.classList.add("bottone");
+//     document.getElementById("bottoni").appendChild(newButton);
+//     newButton.innerHTML = questions[0].incorrect_answers[i];
+//   }
+// };
+
 /*-----TITOLO------*/
 titolo = () => {
   const newTitle = document.createElement("h1");
-  newTitle.innerHTML = questions[0].question;
+  newTitle.innerHTML = questions[1].question;
   document.getElementById("titoloBenchmark").appendChild(newTitle);
 };
 /*-------QUESTION----*/

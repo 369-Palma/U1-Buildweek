@@ -22,8 +22,7 @@ h1 {
 .benchmarkBottone {
   background-color: #00054b;
   color: #fff;
-  text-decoration: none;
-  border: 1px solid #ffffff;
+
   border-radius: 100px;
   width: 30%;
   height: 35px;
@@ -33,7 +32,6 @@ h1 {
   margin-top: 10%;
 }
 .bottoni {
-  opacity: 1;
   margin-top: 3%;
   display: flex;
   flex-wrap: wrap;

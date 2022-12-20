@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReusultsPage</title>
-    <link rel="stylesheet" href="/Assets/CSS/reset.css">
-    <link rel="stylesheet" href="/Assets/CSS/Results.css">
+    <link rel="stylesheet" href="./Assets/CSS/reset.css">
+    <link rel="stylesheet" href="./Assets/CSS/Results.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
+
 <body>
     <header>
         <img class="logo" src="/Assets/images/epicode_logo.png" alt="Logo-Epicode">
@@ -20,16 +22,16 @@
         </section>
         <section class="resultsMain">
             <div class="resultsbox-risposta1">
-              <p class="resultsrisposte">Corrette</p>
-              <p class="resultspercentuale"> 50.5%</p>
-              <p class="resultsrisultato"> 4/6 domande</p>
+                <p class="resultsrisposte">Corrette</p>
+                <p class="resultspercentuale"> 50.5%</p>
+                <p class="resultsrisultato"> 4/6 domande</p>
             </div>
             <div class="resultscerchio">
-               <canvas id="myChart" style="width:100%;max-width:700px">
-            </canvas>
-              <p class="resultstitoloCerchioRisultato">Congratulations!</p>
-              <p class="resultsrisultatoTestoBlu" >You passed the exam.</p>
-              <p class="resultstestoCerchio">Testo vario da modificare relativamente al risultato del test</p>            
+                <canvas id="myChart" style="width:100%;max-width:700px">
+                </canvas>
+                <p class="resultstitoloCerchioRisultato">Congratulations!</p>
+                <p class="resultsrisultatoTestoBlu">You passed the exam.</p>
+                <p class="resultstestoCerchio">Testo vario da modificare relativamente al risultato del test</p>
             </div>
             <div class="resultsbox-risposta2">
                 <p class="resultsrisposte">Sbagliate</p>
@@ -38,10 +40,11 @@
             </div>
         </section>
         <form action="/FeedbackPage.html" class="resultsspaceButton">
-           <button class="resultsbuttonRateUS" type="submit">RATE US</button> 
+            <button class="resultsbuttonRateUS" type="submit">RATE US</button>
         </form>
     </main>
 </body>
-<script src="/Assets/JS/Results.js">
+<script src="./Assets/JS/Results.js">
 </script>
+
 </html>

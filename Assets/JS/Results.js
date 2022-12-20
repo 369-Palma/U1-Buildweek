@@ -1,21 +1,3 @@
-/*let myChart = document.getElementById("myChart").getContext("2d");
-
-let dato1 = 60;
-let dato2 = 40;
-
-let ciambella = new Chart(myChart, {
-  type: "doughnut",
-  data: {
-    labels: "Corrette",
-    datasets: [
-      {
-        label: "Corrette",
-        data: dato1,
-        backgroundcolor: "red",
-      },
-    ],
-  },
-});*/
 
 let myChart = document.getElementById("myChart").getContext("2d");
 
@@ -24,7 +6,7 @@ Chart.defaults.global.defaultFontSize = 18;
 Chart.defaults.global.defaultFontColor = "white";
 
 let massPopChart = new Chart(myChart, {
-  type: "bar",
+  type: "doughnut",
   data: {
     labels: ["Risposte", "Corrette", "Sbagliate"],
 

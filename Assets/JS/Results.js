@@ -1,4 +1,3 @@
-
 let myChart = document.getElementById("myChart").getContext("2d");
 
 Chart.defaults.global.defaultFontSize = 18;
@@ -8,15 +7,13 @@ Chart.defaults.global.defaultFontColor = "white";
 let massPopChart = new Chart(myChart, {
   type: "doughnut",
   data: {
-    labels: ["Risposte", "Corrette", "Sbagliate"],
+    labels: ["Corrette", "Sbagliate"],
 
     datasets: [
       {
         label: "Risposte",
 
         data: [
-          100,
-
           75,
 
           25,
@@ -38,16 +35,12 @@ let massPopChart = new Chart(myChart, {
   options: {
     title: {
       display: true,
-
-      text: "Risposte:",
-
-      fontSize: 25,
     },
 
     legend: {
       display: true,
 
-      position: "right",
+      position: "center",
 
       labels: {
         fontColor: "white",

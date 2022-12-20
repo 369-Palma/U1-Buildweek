@@ -1,29 +1,20 @@
 // document.querySelector("body").addEventListener("click", (event) => {
 //     alert("hi u cliked body")
 
+// ****new logic star****
+
+const gruppoStelle = document.querySelector("#star10")
+
+const stelleArray = document.querySelectorAll(".star")
+
+gruppoStelle.onclick = event => {
+    const classeInside = event.target.classList
+    console.log("this is the class inside", classeInside)
+
+    stelleArray.forEach(stella => stella.classList.remove("piena")
+    )
+    classeInside.add("piena")
 
 
-// })
 
-
-const buttonSel = document.querySelector(".buttone");
-
-// buttonSel.setAttribute("disabled", "");
-
-buttonSel.addEventListener("click", (event) => {
-    console.log("u press the button")
-
-
-});
-
-// logic feedback stelle 
-
-const stelleFeedback = [...document.getElementsByClassName("star")]
-
-console.log(stelleFeedback[0])
-console.log(stelleFeedback[1])
-
-const stellePiene = document.getElementsByClassName("star piena-blue")
-const stelleVuote = document.getElementsByClassName("star vuota-blue")
-
-
+}

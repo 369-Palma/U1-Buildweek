@@ -84,7 +84,23 @@ body img {
 
 /* *********** style star ************ */
 
+
 .star {
   content: url("../images/star.svg");
-  filter: invert(100%);
 }
+
+.star.piena~.star {
+
+  content: url("../images/star1.svg");
+
+}
+
+/* #star10:hover .star::before {
+
+  content: url("../images/star.svg");
+
+}
+
+.star:hover~.star::before {
+  content: url("../images/star1.svg");
+} */

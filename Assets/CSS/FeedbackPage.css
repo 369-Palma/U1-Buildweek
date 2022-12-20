@@ -24,10 +24,13 @@ main h1 {
   margin-bottom: 2em;
   width: 5em;
 }
-.stelle {
-  width: 11em;
-  margin-bottom: 2em;
+#stelle img {
+  width: 1.7em;
+  margin-bottom: 1.5em;
   display: inline-flex;
+  padding: 0.15em;
+  margin-right: auto;
+  margin-left: auto;
 }
 .voto {
   margin-bottom: 1em;

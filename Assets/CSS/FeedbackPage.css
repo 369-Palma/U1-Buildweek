@@ -9,6 +9,7 @@ body {
   text-align: center;
   line-height: 1.5;
   font-family: Arial, Helvetica, sans-serif;
+  display: block;
 }
 body img {
   height: 12%;
@@ -24,14 +25,17 @@ main h1 {
   margin-bottom: 2em;
   width: 5em;
 }
-#stelle img {
-  width: 1.7em;
-  margin-bottom: 1.5em;
-  display: inline-flex;
-  padding: 0.15em;
+#stelle {
   margin-right: auto;
   margin-left: auto;
 }
+#stelle img {
+  width: 1em;
+  margin-bottom: 1.5em;
+  display: inline-flex;
+  padding-right: 0.15em;
+}
+
 .voto {
   margin-bottom: 1em;
   font-size: 0.8em;

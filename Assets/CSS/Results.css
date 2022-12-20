@@ -64,12 +64,13 @@ body {
   .resultscerchio {
     margin: 3% 3%;
     text-align: center;
-    padding-top: 4%;
+    padding-top: 0.1%;
   }
 
 .resultstitoloCerchioRisultato {
     font-size: 1.3em;
     font-weight: bold;
+    padding-top: 2%;
   }
 
 .resultsrisultatoTestoBlu {

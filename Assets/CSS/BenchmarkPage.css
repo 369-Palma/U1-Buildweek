@@ -19,7 +19,7 @@ h1 {
   display: flex;
 }
 
-.benchmarkBottone {
+#benchmarkBottone {
   background-color: #00054b;
   color: #fff;
 
@@ -27,6 +27,9 @@ h1 {
   width: 30%;
   height: 35px;
   margin: 2%;
+}
+.selected {
+  background-color: #620062;
 }
 
 .benchmarkTitolo {

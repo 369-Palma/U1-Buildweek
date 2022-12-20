@@ -81,8 +81,26 @@ body img {
   box-shadow: 0px 0px 40px 5px rgba(0, 251, 251, 0.5);
 }
 
-/*BENCHMARK PAGE*/
 
-/*RESULT PAGE*/
+/* *********** style star ************ */
 
-/*FEEDBACK PAGE*/
+
+.star {
+  content: url("../images/star.svg");
+}
+
+.star.piena~.star {
+
+  content: url("../images/star1.svg");
+
+}
+
+/* #star10:hover .star::before {
+
+  content: url("../images/star.svg");
+
+}
+
+.star:hover~.star::before {
+  content: url("../images/star1.svg");
+} */

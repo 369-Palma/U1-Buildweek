@@ -12,7 +12,7 @@ buttonSel.addEventListener("click", (event) => {
   console.log("pressed button");
 });
 
-document.querySelector("#input1").addEventListener("change", (event) => {});
+document.querySelector("#input1").addEventListener("change", (event) => { });
 
 // logic change disable to able button
 

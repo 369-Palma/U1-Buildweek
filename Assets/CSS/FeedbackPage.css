@@ -4,7 +4,7 @@ body {
   background-image: url(../images/bg.jpg);
   background-size: cover;
   padding: 3%;
-  margin-left: 2em;
+
   color: white;
   text-align: center;
   line-height: 1.5;
@@ -43,8 +43,6 @@ main h1 {
 .comment {
   margin-top: 1.5em;
   font-size: 0.5em;
-  border-style: inset;
-  border-width: 0;
 }
 .form1 {
   display: block;

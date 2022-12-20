@@ -8,7 +8,7 @@ body {
   line-height: 1.5;
   font-family: Arial, Helvetica, sans-serif;
 }
-h1 {
+#benchmarkTitolo {
   font-size: 36px;
 }
 
@@ -19,7 +19,16 @@ h1 {
   display: flex;
 }
 
-#benchmarkBottone {
+.bottoneGiusto {
+  background-color: #00054b;
+  color: #fff;
+
+  border-radius: 100px;
+  width: 30%;
+  height: 35px;
+  margin: 2%;
+}
+.bottoneSbagliato {
   background-color: #00054b;
   color: #fff;
 
@@ -35,7 +44,7 @@ h1 {
 .benchmarkTitolo {
   margin-top: 10%;
 }
-.bottoni {
+#bottoni {
   margin-top: 3%;
   display: flex;
   flex-wrap: wrap;

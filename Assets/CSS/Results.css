@@ -24,7 +24,7 @@ body {
     font-weight: bold;
   }
 
-  .resultstitolo2 {
+  .resultdescription {
     font-size: 1.5em;
   }
 
@@ -35,23 +35,36 @@ body {
     justify-content: space-around;
   }
 
-  .resultsbox-risposta {
+  .resultsbox-risposta1 {
     margin: 5% 5%;
+    
+  }
+
+  .resultsbox-risposta2 {
+    margin: 5% 5%;
+    text-align: right;
+    
   }
 
   .resultsrisposte {
-    font-size: 3.1em;
+    font-size: 3.2em;
+    
   }
 
   .resultspercentuale {
     font-size: 3.2em;
     font-weight: bold;
-    padding: 0%;
+    line-height: 0.5em;
   }
+
+  .resultsrisultato{
+    line-height: 3em;
+  }
+
   .resultscerchio {
     margin: 3% 3%;
     text-align: center;
-    padding-top: 2%;
+    padding-top: 4%;
   }
 
 .resultstitoloCerchioRisultato {
@@ -65,7 +78,7 @@ body {
   }
 
   .resultstestoCerchio {
-    padding-top: 2%;
+    padding: 8% 15% 2% 15% ;
   }
 
   .resultsspaceButton {

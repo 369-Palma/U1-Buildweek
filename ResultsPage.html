@@ -12,13 +12,13 @@
     <header>
         <img class="logo" src="/Assets/images/epicode_logo.png" alt="Logo-Epicode">
     </header>
-    <main>
+    <main class="resultsBody">
         <section>
             <p class="resultstitolo"> Results </p>
-            <p class="resultstitolo2">The summary of your answers: </p>
+            <p class="resultdescription">The summary of your answers: </p>
         </section>
         <section class="resultsMain">
-            <div class="resultsbox-risposta">
+            <div class="resultsbox-risposta1">
               <p class="resultsrisposte">Correct</p>
               <p class="resultspercentuale"> 50.5%</p>
               <p class="resultsrisultato"> 4/6 questions</p>
@@ -26,17 +26,17 @@
             <div class="resultscerchio">
               <p class="resultstitoloCerchioRisultato">Congratulations!</p>
               <p class="resultsrisultatoTestoBlu" >You passed the exam.</p>
-              <p class="resultstestoCerchio">Testo vario da modificare a secondo del risultato</p>            
+              <p class="resultstestoCerchio">Testo vario da modificare relativamente al risultato del test</p>            
             </div>
-            <div class="resultsbox-risposta">
+            <div class="resultsbox-risposta2">
                 <p class="resultsrisposte">Wrong</p>
-                <p class="resultspercentuale"> 49.50% </p>
+                <p class="resultspercentuale"> 49.5% </p>
                 <p class="resultsrisultato"> 2/6 questions </p>
             </div>
         </section>
-        <aside class="resultsspaceButton">
-           <button class="resultsbuttonRateUS">RATE US</button> 
-        </aside>
+        <form action="/FeedbackPage.html" class="resultsspaceButton">
+           <button class="resultsbuttonRateUS" type="submit">RATE US</button> 
+        </form>
     </main>
 </body>
 <script src="/Assets/JS/file.js"></script>

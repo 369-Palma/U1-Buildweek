@@ -120,7 +120,6 @@ const questions = [
 
 let risposteIncorrette = [];
 let risposteCorrette = [];
-let risposte = [];
 
 const incorrette = (array) => {
   for (let i = 0; i < array.length; i++) {
@@ -140,12 +139,6 @@ const corrette = (array) => {
 };
 console.log(corrette(questions));
 
-const risposteTot = (array) => {
-  risposte.concat(risposteIncorrette, risposteCorrette);
-
-  return risposte;
-};
-console.log(risposteTot(questions));
 // faccio una funzione che pushi le stringhe contenute in correct ed incorrect answer dentro a risposte
 // function pushRisposte(questions) {
 //   //let risposte = ["risposta4", "risposta 1", "risposta2", "risposta 3"];

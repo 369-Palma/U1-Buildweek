@@ -134,7 +134,8 @@ risposte = () => {
 
     newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
-    newButton.onclick = aggiungiClasseSelected;
+    newButton.onmouseover = aggiungiClasseSelected;
+    newButton.onmouseout = aggiungiClasseSelected;
     document.getElementById("bottoni").appendChild(newButton);
     newButton.innerHTML = questions[random()].incorrect_answers[i];
   }
@@ -143,13 +144,15 @@ risposte = () => {
 
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
-  newButton.onclick = aggiungiClasseSelected;
+  newButton.onmouseover = aggiungiClasseSelected;
+  newButton.onmouseout = aggiungiClasseSelected;
   newButton.innerHTML = questions[random()].correct_answer;
   document.getElementById("bottoni").appendChild(newButton);
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
 const aggiungiClasseSelected = (event) => {
   const elementoCliccato = event.target;
+
   elementoCliccato.classList.toggle("selected");
 };
 

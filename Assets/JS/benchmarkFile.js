@@ -1,13 +1,4 @@
-// window.addEventListener("load", (event) => {
-//   return alert("asdffafadssda");
-// });
-
-// const buttonPress = document.querySelector("#benchmarkBottone");
-
-// buttonPress.addEventListener("click", (event) => {
-//   buttonPress.toggle("selected");
-// });
-// const padreDomande = document.getElementById("bottoni");
+/*----------------DOMANDE-----------------*/
 const questions = [
   {
     category: "Science: Computers",
@@ -103,20 +94,14 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-//
+/*-----TITOLO------*/
+titolo = () => {
+  const newTitle = document.createElement("h1");
+  newTitle.innerHTML = questions[0].question;
+  document.getElementById("titoloBenchmark").appendChild(newTitle);
+};
 
-// let sbagliate = 0;
-// let giuste = 0;
-
-// function filtro(array) {
-//   questions.filter(answer);
-//   risposte = (array) => {
-//     return array.map((e) => e.correct_answer);
-//   };
-// }
-// console.log(filtro(questions));
-
-//faccio array con dentro stringhe di risposte corrette + risposte incorrette x
+/*----------ARRAY DI RISPOSTE CORRETTE E NON CORRETTE-----------*/
 
 let risposteIncorrette = [];
 let risposteCorrette = [];
@@ -125,7 +110,6 @@ const incorrette = (array) => {
   for (let i = 0; i < array.length; i++) {
     risposteIncorrette.push(questions[i].incorrect_answers);
   }
-
   return risposteIncorrette;
 };
 console.log(incorrette(questions));
@@ -134,47 +118,15 @@ const corrette = (array) => {
   for (let i = 0; i < array.length; i++) {
     risposteCorrette.push(questions[i].correct_answer);
   }
-
   return risposteCorrette;
 };
 console.log(corrette(questions));
 
-// faccio una funzione che pushi le stringhe contenute in correct ed incorrect answer dentro a risposte
-// function pushRisposte(questions) {
-//   //let risposte = ["risposta4", "risposta 1", "risposta2", "risposta 3"];
-//   //shuffle
-
-//   for (let i = 0; i < 1; i++) {
-//     const risposteCorrette = questions[0].correct_answer + " ";
-//     const risposteNonCorrette = questions[0].incorrect_answers + " ";
-//     const sommaRisposte = risposteCorrette + risposteNonCorrette;
-//     risposte.push(sommaRisposte);
-//   }
-
-//   console.log(risposte);
-// }
-// pushRisposte(questions);
-
-// faccio funzione che metta le risposte dentro i button
-
-// controllo che il bottone cliccato abbia una stringa contenuta in correct answer
-// else incorrect answer
-// a seconda del risultato, aumento il contatore delle risposte corrette o incorrette
-
-/*---BOTTONI---*/
-// aggiungiClasseSelected.addEventListener("click", (event) => {
-//   const elementoCliccato = event.target;
-//   elementoCliccato.classList.toggle("selected");
-// });
-
-const aggiungiClasseSelected = (event) => {
-  const elementoCliccato = event.target;
-  elementoCliccato.classList.toggle("selected");
-};
+/*----------------CAST DEI BOTTONI-----------------------------*/
 risposte = () => {
   for (i = 0; i < 3; i++) {
     const newButton = document.createElement("button");
-    // newButton.classList.add("bottoneSbagliato");
+
     newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
     newButton.onclick = aggiungiClasseSelected;
@@ -183,36 +135,20 @@ risposte = () => {
   }
 
   const newButton = document.createElement("button");
-  // newButton.classList.add("bottoneGiusto");
+
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
   newButton.onclick = aggiungiClasseSelected;
   newButton.innerHTML = questions[0].correct_answer;
   document.getElementById("bottoni").appendChild(newButton);
 };
-
-// const questionTemplate = (questions) => `
-// <button id="benchmarkBottone">
-// ${questions.incorrect_answers}
-// </button>
-// `;
-
-// risposte = () => {
-//   for (let i = 0; i < 4; i++) {
-//     const newButton = document.createElement("button");
-//     newButton.classList.add("bottone");
-//     document.getElementById("bottoni").appendChild(newButton);
-//     newButton.innerHTML = questions[0].incorrect_answers[i];
-//   }
-// };
-
-/*-----TITOLO------*/
-titolo = () => {
-  const newTitle = document.createElement("h1");
-  newTitle.innerHTML = questions[0].question;
-  document.getElementById("titoloBenchmark").appendChild(newTitle);
+/*-------------------TOGGLE DEI TASTI---------------------------------*/
+const aggiungiClasseSelected = (event) => {
+  const elementoCliccato = event.target;
+  elementoCliccato.classList.toggle("selected");
 };
-/*-------QUESTION----*/
+
+/*-------WINDOW ONLOAD----*/
 
 window.onload = () => {
   risposte();

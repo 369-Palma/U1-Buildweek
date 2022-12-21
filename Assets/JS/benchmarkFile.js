@@ -117,20 +117,50 @@ const questions = [
 // console.log(filtro(questions));
 
 //faccio array con dentro stringhe di risposte corrette + risposte incorrette x
-length;
-// faccio una funzione che pushi le stringhe contenute in correct ed incorrect answer dentro a risposte
-function pushRisposte(questions) {
-  let risposte = [];
-  for (let i = 0; i < 1; i++) {
-    const risposteCorrette = questions[2].correct_answer + " ";
-    const risposteNonCorrette = questions[2].incorrect_answers + " ";
-    const sommaRisposte = risposteCorrette + risposteNonCorrette;
-    risposte.push(sommaRisposte);
+
+let risposteIncorrette = [];
+let risposteCorrette = [];
+let risposte = [];
+
+const incorrette = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    risposteIncorrette.push(questions[i].incorrect_answers);
   }
 
-  console.log(risposte);
-}
-pushRisposte(questions);
+  return risposteIncorrette;
+};
+console.log(incorrette(questions));
+
+const corrette = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    risposteCorrette.push(questions[i].correct_answer);
+  }
+
+  return risposteCorrette;
+};
+console.log(corrette(questions));
+
+const risposteTot = (array) => {
+  risposte.concat(risposteIncorrette, risposteCorrette);
+
+  return risposte;
+};
+console.log(risposteTot(questions));
+// faccio una funzione che pushi le stringhe contenute in correct ed incorrect answer dentro a risposte
+// function pushRisposte(questions) {
+//   //let risposte = ["risposta4", "risposta 1", "risposta2", "risposta 3"];
+//   //shuffle
+
+//   for (let i = 0; i < 1; i++) {
+//     const risposteCorrette = questions[0].correct_answer + " ";
+//     const risposteNonCorrette = questions[0].incorrect_answers + " ";
+//     const sommaRisposte = risposteCorrette + risposteNonCorrette;
+//     risposte.push(sommaRisposte);
+//   }
+
+//   console.log(risposte);
+// }
+// pushRisposte(questions);
 
 // faccio funzione che metta le risposte dentro i button
 

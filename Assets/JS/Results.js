@@ -1,3 +1,17 @@
+// ************** CODICE PER LA PAGINA CHE RICEVE I DATI  VARIABILI DA CAMBIARE***************
+// questo mi cerca nel url del browser
+const paginaDiPrima = window.location.search;
+
+const url = new URLSearchParams(paginaDiPrima);
+
+const corrette = parseInt(url.get("correct"));
+const sbagliate = parseInt(url.get("wrong"));
+
+console.log("risposte corrette:", corrette);
+console.log("risposte sbagliate:", sbagliate);
+
+//creo il grafico
+
 let myChart = document.getElementById("myChart").getContext("2d");
 
 Chart.defaults.global.defaultFontSize = 18;
@@ -11,7 +25,7 @@ let risposte = new Chart(myChart, {
     datasets: [
       {
         label: "Risposte",
-        data: [75, 25],
+        data: [corrette, sbagliate],
         backgroundColor: ["rgba(54, 162, 235, 0.6)", "rgba(255, 99, 132, 0.6)"],
         borderWidth: 1,
         borderColor: "white",
@@ -35,15 +49,16 @@ let risposte = new Chart(myChart, {
   },
 });
 
+const totale = corrette + sbagliate;
+const percentualeCorrette = ((corrette / totale) * 100).toFixed(2);
+const percentualeSbagliate = ((sbagliate / totale) * 100).toFixed(2);
 
-// ************** CODICE PER LA PAGINA CHE RICEVE I DATI  VARIABILI DA CAMBIARE***************
-// questo mi cerca nel url del browser
-const paginaDiPrima = window.location.search
+//percentuali delle risposte corrette e sbagliate
+document.getElementById("percentualeCorrette").innerHTML =
+  percentualeCorrette + "%";
+document.getElementById("percentualeSbagliate").innerHTML =
+  percentualeSbagliate + "%";
 
-const url = new URLSearchParams(paginaDiPrima)
-
-const corrette = url.get("corrette")
-const svagliatte = url.get("svagliatte")
-
-console.log("risposte corrette:", corrette)
-console.log("risposte svagliatte:", svagliatte)
+//raw data
+document.getElementById("numeroCorrette").innerHTML = corrette + "/" + totale;
+document.getElementById("numeroSbagliate").innerHTML = sbagliate + "/" + totale;

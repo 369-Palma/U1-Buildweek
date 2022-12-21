@@ -95,6 +95,7 @@ const questions = [
   },
 ];
 /*-----TITOLO------*/
+
 titolo = () => {
   const newTitle = document.createElement("h1");
   newTitle.innerHTML = questions[0].question;
@@ -105,22 +106,32 @@ titolo = () => {
 
 let risposteIncorrette = [];
 let risposteCorrette = [];
-
-const incorrette = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    risposteIncorrette.push(questions[i].incorrect_answers);
-  }
-  return risposteIncorrette;
+let ArrayDomande = [];
+const Answers = (array) => {
+  array.map((element) => {
+    risposteIncorrette.push(questions[element].incorrect_answers);
+    risposteCorrette.push(questions[element].correct_answer);
+    ArrayDomande = risposteIncorrette.concat(risposteCorrette);
+  });
+  return ArrayDomande;
 };
-console.log(incorrette(questions));
+console.log(Answers(questions));
 
-const corrette = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    risposteCorrette.push(questions[i].correct_answer);
-  }
+/* const corrette = (array) => {
+  for (let i = 0; i < array.length; i++) {}
   return risposteCorrette;
 };
 console.log(corrette(questions));
+let TutteLeRisposte = risposteIncorrette.concat(risposteCorrette);
+const InsiemediRisposte = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    let;
+  }
+};
+
+console.log(onlyTheAnswers(questions)); */
+/* const SoloLeRisposte = [];
+console.log(onlyTheAnswers(questions)); */
 
 /*----------------CAST DEI BOTTONI-----------------------------*/
 risposte = () => {

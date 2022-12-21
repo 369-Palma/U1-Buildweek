@@ -149,14 +149,14 @@ const aggiungiClasseSelected = (event) => {
   elementoCliccato.classList.toggle("selected");
 };
 risposte = () => {
-  for (i = 0; questions.incorrect_answers === undefined; i++) {
+  for (i = 0; i < 3; i++) {
     const newButton = document.createElement("button");
     // newButton.classList.add("bottoneSbagliato");
     newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
     newButton.onclick = aggiungiClasseSelected;
     document.getElementById("bottoni").appendChild(newButton);
-    newButton.innerHTML = questions[2].incorrect_answers[i];
+    newButton.innerHTML = questions[0].incorrect_answers[i];
   }
 
   const newButton = document.createElement("button");
@@ -164,7 +164,7 @@ risposte = () => {
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
   newButton.onclick = aggiungiClasseSelected;
-  newButton.innerHTML = questions[2].correct_answer;
+  newButton.innerHTML = questions[0].correct_answer;
   document.getElementById("bottoni").appendChild(newButton);
 };
 

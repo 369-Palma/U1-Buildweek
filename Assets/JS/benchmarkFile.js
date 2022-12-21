@@ -140,25 +140,39 @@ risposte = () => {
 
     newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
+    newButton.addEventListener(`click`, aggiungiRisposteCliccate);
     newButton.onclick = aggiungiClasseSelected;
     document.getElementById("bottoni").appendChild(newButton);
-    newButton.innerHTML = questions[0].incorrect_answers[i];
+    newButton.innerText = questions[0].incorrect_answers[i];
+    newButton.innerHTML = questions[0].correct_answer;
   }
 
   const newButton = document.createElement("button");
 
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
+  //newButton.addEventListener(`click`, aggiungiRisposteCliccate);
   newButton.onclick = aggiungiClasseSelected;
-  newButton.innerHTML = questions[0].correct_answer;
+  /* newButton.innerHTML = questions[0].correct_answer; */
   document.getElementById("bottoni").appendChild(newButton);
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
+let risposteCliccate = [];
+let elementoCliccato;
 const aggiungiClasseSelected = (event) => {
-  const elementoCliccato = event.target;
+  elementoCliccato = event.target.value;
   elementoCliccato.classList.toggle("selected");
+  risposteCliccate.push(elementoCliccato.value);
+  console.log("l'elemento cliccato è:", elementoCliccato);
+  return risposteCliccate;
 };
+/* const aggiungiRisposteCliccate = (event) => {
+  event.innerHTML = elementoCliccato;
+  let cliccateRisposte = event.target.value;
 
+  risposteCliccate.push(cliccateRisposte);
+};
+ */ console.log(risposteCliccate);
 /*-------WINDOW ONLOAD----*/
 
 window.onload = () => {

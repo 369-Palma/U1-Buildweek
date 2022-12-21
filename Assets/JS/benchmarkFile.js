@@ -121,14 +121,13 @@ length;
 // faccio una funzione che pushi le stringhe contenute in correct ed incorrect answer dentro a risposte
 function pushRisposte(questions) {
   let risposte = [];
-  for (let i = 0; i < questions.length; i++) {
-    const risposteCorrette = questions[i].correct_answer;
-    const risposteNonCorrette = questions[i].incorrect_answers;
+  for (let i = 0; i < 1; i++) {
+    const risposteCorrette = questions[2].correct_answer + " ";
+    const risposteNonCorrette = questions[2].incorrect_answers + " ";
     const sommaRisposte = risposteCorrette + risposteNonCorrette;
-    // const risposteNonCorrette = questions[i].incorrect_answers;
-    // const sommaRisposte = risposteNonCorrette.join(RisposteCorrette);
     risposte.push(sommaRisposte);
   }
+
   console.log(risposte);
 }
 pushRisposte(questions);
@@ -150,22 +149,22 @@ const aggiungiClasseSelected = (event) => {
   elementoCliccato.classList.toggle("selected");
 };
 risposte = () => {
-  for (i = 0; i < 3; i++) {
+  for (i = 0; questions.incorrect_answers === undefined; i++) {
     const newButton = document.createElement("button");
     // newButton.classList.add("bottoneSbagliato");
-    newButton.id = "bottoneSbagliato" + i;
+    newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
     newButton.onclick = aggiungiClasseSelected;
     document.getElementById("bottoni").appendChild(newButton);
-    newButton.innerHTML = questions[0].incorrect_answers[i];
+    newButton.innerHTML = questions[2].incorrect_answers[i];
   }
 
   const newButton = document.createElement("button");
   // newButton.classList.add("bottoneGiusto");
-  newButton.id = "bottoneGiusto" + i;
+  newButton.id = "bottone3";
   newButton.classList.add("bottone");
   newButton.onclick = aggiungiClasseSelected;
-  newButton.innerHTML = questions[0].correct_answer;
+  newButton.innerHTML = questions[2].correct_answer;
   document.getElementById("bottoni").appendChild(newButton);
 };
 
@@ -187,7 +186,7 @@ risposte = () => {
 /*-----TITOLO------*/
 titolo = () => {
   const newTitle = document.createElement("h1");
-  newTitle.innerHTML = questions[1].question;
+  newTitle.innerHTML = questions[0].question;
   document.getElementById("titoloBenchmark").appendChild(newTitle);
 };
 /*-------QUESTION----*/

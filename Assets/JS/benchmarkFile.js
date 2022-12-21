@@ -172,7 +172,8 @@ const risposte = (posizione, questionsJson) => {
     newButton.onmouseover = aggiungiClasseSelected;
     newButton.onmouseout = aggiungiClasseSelected;
     if (posizione < questionsJson.length - 1) {
-      // se funzione parte a caso (bug) fai () => {nomeFunzione}
+      //se non è l'ultima domanda entra nell'if
+      // se funzione parte a caso (bug) fai () => {nomeFunzione}//
       newButton.onclick = () => {
         // se clicco questop bottone vuol dire che la risposta è sbagliata -- pusho in risposte incorrette
         incorrette(questionsJson[posizione]);

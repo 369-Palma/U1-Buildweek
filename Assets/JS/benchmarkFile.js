@@ -159,7 +159,7 @@ function shuffle(array) {
   return array;
 }
 
-risposte = (posizione, questionsJson) => {
+const risposte = (posizione, questionsJson) => {
   //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
   let possibleAnswers = []; //array che conterrà i bottoni
   document.getElementById("bottoni").innerHTML = ""; //pulizia div "bottoni"

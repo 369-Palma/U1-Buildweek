@@ -95,9 +95,13 @@ const questions = [
   },
 ];
 /*-----TITOLO------*/
+
+const random = () => {
+  return Math.floor(Math.random() * 10);
+};
 titolo = () => {
   const newTitle = document.createElement("h1");
-  newTitle.innerHTML = questions[0].question;
+  newTitle.innerHTML = questions[random].question;
   document.getElementById("titoloBenchmark").appendChild(newTitle);
 };
 
@@ -123,6 +127,7 @@ const corrette = (array) => {
 console.log(corrette(questions));
 
 /*----------------CAST DEI BOTTONI-----------------------------*/
+
 risposte = () => {
   for (i = 0; i < 3; i++) {
     const newButton = document.createElement("button");
@@ -131,7 +136,7 @@ risposte = () => {
     newButton.classList.add("bottone");
     newButton.onclick = aggiungiClasseSelected;
     document.getElementById("bottoni").appendChild(newButton);
-    newButton.innerHTML = questions[0].incorrect_answers[i];
+    newButton.innerHTML = questions[random()].incorrect_answers[i];
   }
 
   const newButton = document.createElement("button");
@@ -139,7 +144,7 @@ risposte = () => {
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
   newButton.onclick = aggiungiClasseSelected;
-  newButton.innerHTML = questions[0].correct_answer;
+  newButton.innerHTML = questions[random()].correct_answer;
   document.getElementById("bottoni").appendChild(newButton);
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
@@ -156,24 +161,11 @@ window.onload = () => {
   titolo();
 };
 
-
-
-
-
-
-
-
-
-
-
 // // ************** CODICE PER COLLEGARE CON L'ALTRA PAGINA VARIABILI DA CAMBIARE ***************
-
 
 // const click_body = document.querySelector("body")
 
 // click_body.addEventListener("click", (event) => {
-
-
 
 //   // ************** CODICE PER LA PAGINA CHE PUSHA I DATI ***************
 //   const correttePusha = 9
@@ -191,9 +183,4 @@ window.onload = () => {
 
 //   window.open(link)
 
-
 // })
-
-
-
-

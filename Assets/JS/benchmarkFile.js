@@ -96,12 +96,13 @@ const questions = [
 ];
 /*-----TITOLO------*/
 
-const random = () => {
-  return Math.floor(Math.random() * 10);
-};
+// const random = () => {
+//   return Math.floor(Math.random() * 10);
+// };
+let counter = 0;
 titolo = () => {
   const newTitle = document.createElement("h1");
-  newTitle.innerHTML = questions[random].question;
+  newTitle.innerHTML = questions[counter].question;
   document.getElementById("titoloBenchmark").appendChild(newTitle);
 };
 
@@ -136,8 +137,9 @@ risposte = () => {
     newButton.classList.add("bottone");
     newButton.onmouseover = aggiungiClasseSelected;
     newButton.onmouseout = aggiungiClasseSelected;
+    newButton.onclick = counterIncrease;
     document.getElementById("bottoni").appendChild(newButton);
-    newButton.innerHTML = questions[random()].incorrect_answers[i];
+    newButton.innerHTML = questions[counter].incorrect_answers[i];
   }
 
   const newButton = document.createElement("button");
@@ -146,7 +148,8 @@ risposte = () => {
   newButton.classList.add("bottone");
   newButton.onmouseover = aggiungiClasseSelected;
   newButton.onmouseout = aggiungiClasseSelected;
-  newButton.innerHTML = questions[random()].correct_answer;
+  newButton.onclick = counterIncrease;
+  newButton.innerHTML = questions[counter].correct_answer;
   document.getElementById("bottoni").appendChild(newButton);
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
@@ -154,6 +157,12 @@ const aggiungiClasseSelected = (event) => {
   const elementoCliccato = event.target;
 
   elementoCliccato.classList.toggle("selected");
+};
+
+const counterIncrease = () => {
+  document.addEventListener(`click`, risposte());
+  document.getElementsByClass("bottone").value = "";
+  return counter++;
 };
 
 /*-------WINDOW ONLOAD----*/

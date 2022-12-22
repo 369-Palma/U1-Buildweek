@@ -332,7 +332,7 @@ function gotoResults() {
   urlP.append("correct", correttePusha);
   urlP.append("wrong", sbagliatePusha);
 
-  // metter i datti nel url
+  // mette i dati nel url
   let link = "ResultsPage.html?" + urlP.toString();
   location.href = link;
 

@@ -64,3 +64,18 @@ document.getElementById("numeroCorrette").innerHTML =
   corrette + "/" + totale + " questions";
 document.getElementById("numeroSbagliate").innerHTML =
   sbagliate + "/" + totale + " questions";
+
+if (percentualeCorrette >= 60) {
+  document.getElementById("resultstitoloCerchioRisultato").innerText =
+    "Congratulations!";
+  document.getElementById("resultsrisultatoTestoBlu").innerText =
+    "You passed the exam.";
+  document.getElementById("resultstestoCerchio").innerText =
+    "We'll send you the certificate in few minutes.";
+} else {
+  document.getElementById("resultstitoloCerchioRisultato").innerText =
+    "Oh no! Try again";
+  document.getElementById("resultsrisultatoTestoBlu").innerText =
+    "You didn't pass the exam.";
+  document.getElementById("resultstestoCerchio").innerText = "";
+}

@@ -67,18 +67,18 @@ body {
     padding-top: 0.1%;
   }
 
-.resultstitoloCerchioRisultato {
+#resultstitoloCerchioRisultato {
     font-size: 1.3em;
     font-weight: bold;
     padding-top: 2%;
   }
 
-.resultsrisultatoTestoBlu {
+#resultsrisultatoTestoBlu {
     color: #0ff;
     font-weight: bold;
   }
 
-  .resultstestoCerchio {
+  #resultstestoCerchio {
     padding: 8% 15% 2% 15% ;
   }
 

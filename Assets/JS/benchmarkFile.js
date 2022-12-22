@@ -252,8 +252,7 @@ const risposte = (posizione, domande) => {
   const newTimer = document.createElement("div");
   newTimer.id = "timer";
   newTimer.classList.add("tempo");
-  document.getElementById("contenitoreTimer").appendChild(newTimer);
-
+  document.getElementById("contenitoreTimer");
   setTimeout(() => {
     if (posizione < domande.length - 1) {
       risposteIncorrette.push(null);
@@ -262,7 +261,7 @@ const risposte = (posizione, domande) => {
       risposteIncorrette.push(null);
       lastQuestion();
     }
-  }, 1000);
+  }, 6000);
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
 const aggiungiClasseSelected = (event) => {

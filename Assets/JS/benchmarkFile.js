@@ -100,10 +100,10 @@ const questions = [
 //   return Math.floor(Math.random() * 10);
 // };
 
-titolo = (posizione, questionsJson) => {
+titolo = (posizione, domande) => {
   document.getElementById("titoloBenchmark").innerHTML = "";
   const newTitle = document.createElement("h1");
-  newTitle.innerHTML = questionsJson[posizione].question;
+  newTitle.innerHTML = domande[posizione].question;
   document.getElementById("titoloBenchmark").appendChild(newTitle);
 };
 
@@ -138,7 +138,7 @@ const corrette = (question) => {
   risposteCorrette.push(question);
 };
 
-/*----------------CAST DEI BOTTONI-----------------------------*/
+/*----------------CAST DEI BOTTONI-copiato da google----------------------------*/
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -159,11 +159,11 @@ function shuffle(array) {
   return array;
 }
 
-const risposte = (posizione, questionsJson) => {
+const risposte = (posizione, domande) => {
   //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
   let possibleAnswers = []; //array che conterrà i bottoni
   document.getElementById("bottoni").innerHTML = ""; //pulizia div "bottoni"
-  for (i = 0; i < questionsJson[posizione].incorrect_answers.length; i++) {
+  for (i = 0; i < domande[posizione].incorrect_answers.length; i++) {
     //lunghezza dinamica (fix true/false issues)
 
     const newButton = document.createElement("button");
@@ -171,22 +171,22 @@ const risposte = (posizione, questionsJson) => {
     newButton.classList.add("bottone");
     newButton.onmouseover = aggiungiClasseSelected;
     newButton.onmouseout = aggiungiClasseSelected;
-    if (posizione < questionsJson.length - 1) {
+    if (posizione < domande.length - 1) {
       //se non è l'ultima domanda entra nell'if
       // se funzione parte a caso (bug) fai () => {nomeFunzione}//
       newButton.onclick = () => {
         // se clicco questop bottone vuol dire che la risposta è sbagliata -- pusho in risposte incorrette
-        incorrette(questionsJson[posizione]);
+        incorrette(domande[posizione]);
         counterIncrease();
       };
     } else {
       newButton.onclick = () => {
-        incorrette(questionsJson[posizione]);
+        incorrette(domande[posizione]);
         lastQuestion();
       };
     }
     // document.getElementById("bottoni").appendChild(newButton);// si fa alla fine con un ciclo forEach
-    newButton.innerHTML = questionsJson[posizione].incorrect_answers[i]; //resa dinamica con parametri in ingresso
+    newButton.innerHTML = domande[posizione].incorrect_answers[i]; //resa dinamica con parametri in ingresso
     possibleAnswers.push(newButton); //push dell'array
   }
 
@@ -196,18 +196,18 @@ const risposte = (posizione, questionsJson) => {
   newButton.classList.add("bottone");
   newButton.onmouseover = aggiungiClasseSelected;
   newButton.onmouseout = aggiungiClasseSelected;
-  if (posizione < questionsJson.length - 1) {
+  if (posizione < domande.length - 1) {
     newButton.onclick = () => {
-      corrette(questionsJson[posizione]); //se clicco questo bottone vuol dire che la risposta è giusta-- pusho in risposte corrette
+      corrette(domande[posizione]); //se clicco questo bottone vuol dire che la risposta è giusta-- pusho in risposte corrette
       counterIncrease();
     };
   } else {
     newButton.onclick = () => {
-      corrette(questionsJson[posizione]);
+      corrette(domande[posizione]);
       lastQuestion();
     };
   }
-  newButton.innerHTML = questionsJson[posizione].correct_answer;
+  newButton.innerHTML = domande[posizione].correct_answer;
   // document.getElementById("bottoni").appendChild(newButton);//vedi su
   possibleAnswers.push(newButton);
 

@@ -96,69 +96,156 @@ const questions = [
 ];
 /*-----TITOLO------*/
 
-const random = () => {
-  return Math.floor(Math.random() * 10);
-};
-titolo = () => {
+// const random = () => {
+//   return Math.floor(Math.random() * 10);
+// };
+
+titolo = (posizione, domande) => {
+  document.getElementById("titoloBenchmark").innerHTML = "";
   const newTitle = document.createElement("h1");
-  newTitle.innerHTML = questions[random].question;
+  newTitle.innerHTML = domande[posizione].question;
   document.getElementById("titoloBenchmark").appendChild(newTitle);
 };
 
 /*----------ARRAY DI RISPOSTE CORRETTE E NON CORRETTE-----------*/
 
+// let risposteIncorrette = [];
+// let risposteCorrette = [];
+
+// const incorrette = (array) => {
+//   for (let i = 0; i < array.length; i++) {
+//     risposteIncorrette.push(questions[i].incorrect_answers);
+//   }
+//   return risposteIncorrette;
+// };
+// console.log(incorrette(questions));
+
+// const corrette = (array) => {
+//   for (let i = 0; i < array.length; i++) {
+//     risposteCorrette.push(questions[i].correct_answer);
+//   }
+//   return risposteCorrette;
+// };
+// console.log(corrette(questions));
 let risposteIncorrette = [];
 let risposteCorrette = [];
 
-const incorrette = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    risposteIncorrette.push(questions[i].incorrect_answers);
-  }
-  return risposteIncorrette;
+const incorrette = (question) => {
+  risposteIncorrette.push(question);
 };
-console.log(incorrette(questions));
 
-const corrette = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    risposteCorrette.push(questions[i].correct_answer);
-  }
-  return risposteCorrette;
+const corrette = (question) => {
+  risposteCorrette.push(question);
 };
-console.log(corrette(questions));
 
-/*----------------CAST DEI BOTTONI-----------------------------*/
+/*----------------CAST DEI BOTTONI-copiato da google----------------------------*/
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
 
-risposte = () => {
-  for (i = 0; i < 3; i++) {
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
+const risposte = (posizione, domande) => {
+  //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
+  let possibleAnswers = []; //array che conterrà i bottoni
+  document.getElementById("bottoni").innerHTML = ""; //pulizia div "bottoni"
+  for (i = 0; i < domande[posizione].incorrect_answers.length; i++) {
+    //lunghezza dinamica (fix true/false issues)
+
     const newButton = document.createElement("button");
-
     newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
-    newButton.onclick = aggiungiClasseSelected;
-    document.getElementById("bottoni").appendChild(newButton);
-    newButton.innerHTML = questions[random()].incorrect_answers[i];
+    newButton.onmouseover = aggiungiClasseSelected;
+    newButton.onmouseout = aggiungiClasseSelected;
+    if (posizione < domande.length - 1) {
+      //se non è l'ultima domanda entra nell'if
+      // se funzione parte a caso (bug) fai () => {nomeFunzione}//
+      newButton.onclick = () => {
+        // se clicco questop bottone vuol dire che la risposta è sbagliata -- pusho in risposte incorrette
+        incorrette(domande[posizione]);
+        counterIncrease();
+      };
+    } else {
+      newButton.onclick = () => {
+        incorrette(domande[posizione]);
+        lastQuestion();
+      };
+    }
+    // document.getElementById("bottoni").appendChild(newButton);// si fa alla fine con un ciclo forEach
+    newButton.innerHTML = domande[posizione].incorrect_answers[i]; //resa dinamica con parametri in ingresso
+    possibleAnswers.push(newButton); //push dell'array
   }
 
   const newButton = document.createElement("button");
 
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
-  newButton.onclick = aggiungiClasseSelected;
-  newButton.innerHTML = questions[random()].correct_answer;
-  document.getElementById("bottoni").appendChild(newButton);
+  newButton.onmouseover = aggiungiClasseSelected;
+  newButton.onmouseout = aggiungiClasseSelected;
+  if (posizione < domande.length - 1) {
+    newButton.onclick = () => {
+      corrette(domande[posizione]); //se clicco questo bottone vuol dire che la risposta è giusta-- pusho in risposte corrette
+      counterIncrease();
+    };
+  } else {
+    newButton.onclick = () => {
+      corrette(domande[posizione]);
+      lastQuestion();
+    };
+  }
+  newButton.innerHTML = domande[posizione].correct_answer;
+  // document.getElementById("bottoni").appendChild(newButton);//vedi su
+  possibleAnswers.push(newButton);
+
+  shuffle(possibleAnswers); // richiamo la funzione per mischiare l'array (copiata da internet)
+  possibleAnswers.forEach((element) => {
+    // per ogni elemento lo aggiungo al div bottoni (dopo averli mischiati)
+    document.getElementById("bottoni").appendChild(element);
+  });
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
 const aggiungiClasseSelected = (event) => {
   const elementoCliccato = event.target;
+
   elementoCliccato.classList.toggle("selected");
+};
+let counter = 0;
+
+const counterIncrease = () => {
+  counter++; //messo sopra counter++ cosi incrementa il valore prima di fare tutto
+  document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
+  titolo(counter, questions);
+  risposte(counter, questions); //richiamo funzione inserendo i parametri delle domande e posizione aggiornata
+  // document.addEventListener(`click`, risposte());//useless
+};
+
+const lastQuestion = () => {
+  gotoResults();
 };
 
 /*-------WINDOW ONLOAD----*/
 
 window.onload = () => {
-  risposte();
+  risposte(counter, questions);
+  // inserisco parametri
+  document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
+  document.getElementById("totaleDomande").innerHTML = "/" + questions.length;
 
-  titolo();
+  titolo(counter, questions); //inserisco parametri
 };
 
 // // ************** CODICE PER COLLEGARE CON L'ALTRA PAGINA VARIABILI DA CAMBIARE ***************
@@ -168,19 +255,19 @@ window.onload = () => {
 // click_body.addEventListener("click", (event) => {
 
 //   // ************** CODICE PER LA PAGINA CHE PUSHA I DATI ***************
-//   const correttePusha = 9
-//   const svagliattePusha = 1
+function gotoResults() {
+  const correttePusha = risposteCorrette.length;
+  const sbagliatePusha = risposteIncorrette.length;
 
-//   let urlP = new URLSearchParams()
-//   urlP.append("correct", correttePusha)
-//   urlP.append("wrong", svagliattePusha)
+  let urlP = new URLSearchParams();
+  urlP.append("correct", correttePusha);
+  urlP.append("wrong", sbagliatePusha);
 
-//   // metter i datti nel url
-//   let link = "ResultsPage.html?" + urlP.toString()
-//   location.href = link
+  // metter i datti nel url
+  let link = "ResultsPage.html?" + urlP.toString();
+  location.href = link;
 
-//   // apre la nuova pagina
+  // apre la nuova pagina
 
-//   window.open(link)
-
-// })
+  window.open(link);
+}

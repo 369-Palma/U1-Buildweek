@@ -29,14 +29,23 @@ body {
   margin: 2%;
 } */
 .bottone {
-  background-color: #00054b;
   color: #fff;
 
   border-radius: 100px;
-  width: 30%;
-  height: 35px;
+  width: 25%;
+  height: 100px;
   margin: 2%;
+
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 50px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  width: 30%;
+  font-size: 1.5rem;
 }
+
 .selected {
   background-color: #620062;
 }
@@ -46,12 +55,17 @@ body {
 }
 #bottoni {
   margin-top: 3%;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .numeroDomande {
   display: flex;
   flex-direction: wrap;
   justify-content: center;
+}
+.totaleDomande {
+  color: purple;
 }

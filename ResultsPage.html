@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ResultsPage</title>
-    <link rel="stylesheet" href="./Assets/CSS/reset.css">
-    <link rel="stylesheet" href="./Assets/CSS/Results.css">
+    <link rel="stylesheet" href="./Assets/CSS/reset.css" />
+    <link rel="stylesheet" href="./Assets/CSS/Results.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <img class="logo" src="./Assets/images/epicode_logo.png" alt="Logo-Epicode">
+      <img
+        class="logo"
+        src="./Assets/images/epicode_logo.png"
+        alt="Logo-Epicode"
+      />
     </header>
     <main class="results">
-        <section>
-            <p class="resultstitolo"> Results </p>
-            <p class="resultdescription">The summary of your answers: </p>
-        </section>
-        <section class="resultsMain">
-            <div class="resultsbox-risposta1">
-                <p class="resultsrisposte">Corrette</p>
-                <p class="resultspercentuale"> 50.5%</p>
-                <p class="resultsrisultato"> 4/6 domande</p>
-            </div>
-            <div class="resultscerchio">
-                <canvas id="myChart">
-                </canvas>
-                <p class="resultstitoloCerchioRisultato">Congratulations!</p>
-                <p class="resultsrisultatoTestoBlu">You passed the exam.</p>
-                <p class="resultstestoCerchio">Testo vario da modificare relativamente al risultato del test</p>
-            </div>
-            <div class="resultsbox-risposta2">
-                <p class="resultsrisposte">Sbagliate</p>
-                <p class="resultspercentuale"> 49.5% </p>
-                <p class="resultsrisultato"> 2/6 domande </p>
-            </div>
-        </section>
-        <form action="/FeedbackPage.html" class="resultsspaceButton">
-            <button class="resultsbuttonRateUS" type="submit">RATE US</button>
-        </form>
+      <section>
+        <p class="resultstitolo">Results</p>
+        <p class="resultdescription">The summary of your answers:</p>
+      </section>
+      <section class="resultsMain">
+        <div class="resultsbox-risposta1">
+          <p class="resultsrisposte">Corrette</p>
+          <p id="percentualeCorrette" class="resultspercentuale"></p>
+          <!--a-->
+          <p id="numeroCorrette" class="resultsrisultato"></p>
+        </div>
+        <div class="resultscerchio">
+          <canvas id="myChart"> </canvas>
+          <p class="resultstitoloCerchioRisultato">Congratulations!</p>
+          <p class="resultsrisultatoTestoBlu">You passed the exam.</p>
+          <p class="resultstestoCerchio">
+            Testo vario da modificare relativamente al risultato del test
+          </p>
+        </div>
+        <div class="resultsbox-risposta2">
+          <p class="resultsrisposte">Sbagliate</p>
+          <p id="percentualeSbagliate" class="resultspercentuale"></p>
+          <!--a-->
+          <p id="numeroSbagliate" class="resultsrisultato"></p>
+        </div>
+      </section>
+      <form action="/FeedbackPage.html" class="resultsspaceButton">
+        <button class="resultsbuttonRateUS" type="submit">RATE US</button>
+      </form>
     </main>
-</body>
-<script src="./Assets/JS/Results.js">
-</script>
-
+  </body>
+  <script src="./Assets/JS/Results.js"></script>
 </html>

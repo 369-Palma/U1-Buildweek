@@ -93,3 +93,8 @@ body img {
   border-radius: 0.15em;
   transform: translateY(-0.075em);
 }
+
+.basso span {
+  padding-bottom: 3.5em;
+  margin-left: 0.5em;
+}

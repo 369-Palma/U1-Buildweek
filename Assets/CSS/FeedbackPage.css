@@ -19,6 +19,10 @@ body img {
 
 /* MAIN */
 
+main {
+  font-size: 1.5em;
+}
+
 main h1 {
   font-size: 1.7em;
 }
@@ -26,7 +30,6 @@ main h1 {
 #logo {
   text-align: left;
   margin-bottom: 2em;
-  width: 5em;
   padding-right: 90%;
   margin-left: 2em;
 }
@@ -66,8 +69,8 @@ main h1 {
 }
 
 .celeste {
-  height: 25px;
-  width: 90px;
+  height: 35px;
+  width: 135px;
   background-color: #00fbfb;
   color: #0b113b;
   font-size: 60%;

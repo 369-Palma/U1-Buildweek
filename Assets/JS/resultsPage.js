@@ -21,16 +21,17 @@ Chart.defaults.global.defaultFontColor = "white";
 let risposte = new Chart(myChart, {
   type: "doughnut",
   data: {
-    labels: ["Corrette", "Sbagliate"],
+    labels: ["Sbagliate", "Corrette"],
     datasets: [
       {
         label: "Risposte",
-        data: [corrette, sbagliate],
-        backgroundColor: ["rgba(54, 162, 235, 0.6)", "rgba(255, 99, 132, 0.6)"],
+        data: [sbagliate, corrette],
+        backgroundColor: ["#D20094", "#00FFFF"],
         borderWidth: 1,
         borderColor: "white",
         hoverBorderWidth: 3,
         hoverBorderColor: "white",
+        radius: 4,
       },
     ],
   },

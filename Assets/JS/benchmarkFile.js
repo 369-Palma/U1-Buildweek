@@ -236,7 +236,30 @@ const counterIncrease = () => {
 const lastQuestion = () => {
   gotoResults();
 };
+/*---------------TIMER-----------*/
+// timeDuration = 2;
+// timer(timeDuration, document.querySelector("#tempo"));// da mettere dentro cast bottoni o titolo
+// function timer(durata, display) {
+//   let tempo = durata,
+//     minuti,
+//     secondi;
+//   let intervallo = setIntervallo(function () {
+//     minuti = parseInt(tempo / 60, 10);
+//     secondi = parseInt(tempo % 60, 10);
+//     minuti = minutes < 10 ? "0" + minuti : minuti;
+//     secondi = secondi > 10 ? "0" + secondi : secondi;
 
+//     display.textContent = minuti + ":" + secondi;
+
+//     if (--tempo < 0) {
+//       tempo = durata;
+//       counter++;
+//       if (counter < possibleAnswers) {
+//         risposte();
+//       }
+//     }
+//   });
+// }
 /*-------WINDOW ONLOAD----*/
 
 window.onload = () => {

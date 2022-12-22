@@ -21,7 +21,7 @@ Chart.defaults.global.defaultFontColor = "white";
 let risposte = new Chart(myChart, {
   type: "doughnut",
   data: {
-    labels: ["Sbagliate", "Corrette"],
+    labels: ["Wrong", "Correct"],
     datasets: [
       {
         label: "Risposte",

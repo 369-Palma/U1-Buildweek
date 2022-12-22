@@ -261,7 +261,7 @@ const risposte = (posizione, domande) => {
       risposteIncorrette.push({});
       lastQuestion();
     }
-  }, 6000);
+  }, 60000);
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
 const aggiungiClasseSelected = (event) => {

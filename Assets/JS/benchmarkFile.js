@@ -159,43 +159,39 @@ function shuffle(array) {
   return array;
 }
 
+//>>> ************* timer ****************>>>
+
+// // tempo attuale in numero con gettime + 60secs (1000 =1sec)
+// let end = new Date().getTime() + 60000;
+// // fa intervali di updates ogni secondo ... sotto }, 1000)
+// let repeat = setInterval(function () {
+//   // Get today's date and time
+//   let now = new Date().getTime();
+
+//   // quanto tempo manca tra end e now, tempo attuale e il tempo attuale piu 6
+//   let tempoManca = end - now;
+
+//   // matematica di cambio secondi minuti
+//   let minutes = Math.floor((tempoManca % (1000 * 60 * 60)) / (1000 * 60));
+//   let seconds = Math.floor((tempoManca % (1000 * 60)) / 1000);
+
+//   // Output
+//   document.getElementById("timer").innerHTML = "";
+//   document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+
+//   // se il timer è 0 cambia il tiemr a next qeustion
+//   if (tempoManca < 0) {
+//     clearInterval(repeat);
+//     document.getElementById("timer").innerHTML = "next question";
+//     document.getElementById("timer").innerHTML = "";
+//   }
+// }, 1000);
+
+//<<< ************* timer ****************<<<
 const risposte = (posizione, domande) => {
-
-  //>>> ************* timer ****************>>>
-
-  // tempo attuale in numero con gettime + 60secs (1000 =1sec)
-  let end = new Date().getTime() + 60000;
-  // fa intervali di updates ogni secondo ... sotto }, 1000)
-  let repeat = setInterval(function () {
-
-    // Get today's date and time
-    let now = new Date().getTime();
-
-    // quanto tempo manca tra end e now, tempo attuale e il tempo attuale piu 6
-    let tempoManca = end - now;
-
-    // matematica di cambio secondi minuti
-    let minutes = Math.floor((tempoManca % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((tempoManca % (1000 * 60)) / 1000);
-
-    // Output 
-    document.getElementById("timer").innerHTML = ""
-    document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-
-    // se il timer è 0 cambia il tiemr a next qeustion
-    if (tempoManca < 0) {
-      clearInterval(repeat);
-      document.getElementById("timer").innerHTML = "next question";
-      document.getElementById("timer").innerHTML = ""
-
-    }
-  }, 1000);
-
-
-  //<<< ************* timer ****************<<<
-
   //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
-  let possibleAnswers = []; //array che conterrà i bottoni
+  let possibleAnswers = [];
+  //array che conterrà i bottoni
   document.getElementById("bottoni").innerHTML = ""; //pulizia div "bottoni"
   for (i = 0; i < domande[posizione].incorrect_answers.length; i++) {
     //lunghezza dinamica (fix true/false issues)
@@ -250,7 +246,22 @@ const risposte = (posizione, domande) => {
     // per ogni elemento lo aggiungo al div bottoni (dopo averli mischiati)
     document.getElementById("bottoni").appendChild(element);
   });
+  //creo timer
+  const newTimer = document.createElement("div");
+  newTimer.id = "timer";
+  newTimer.classList.add("tempo");
+  document.getElementById("contenitoreTimer");
+  setTimeout(() => {
+    if (posizione < domande.length - 1) {
+      risposteIncorrette.push(null);
+      counterIncrease();
+    } else {
+      risposteIncorrette.push(null);
+      lastQuestion();
+    }
+  }, 500);
 };
+
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
 const aggiungiClasseSelected = (event) => {
   const elementoCliccato = event.target;
@@ -311,14 +322,6 @@ window.onload = () => {
 
 // click_body.addEventListener("click", (event) => {
 
-
-
-
-
-
-
-
-
 //   // ************** CODICE PER LA PAGINA CHE PUSHA I DATI ***************
 function gotoResults() {
   const correttePusha = risposteCorrette.length;
@@ -336,6 +339,3 @@ function gotoResults() {
 
   window.open(link);
 }
-
-
-

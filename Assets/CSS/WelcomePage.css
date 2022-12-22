@@ -82,3 +82,14 @@ body img {
   box-shadow: 0px 0px 40px 5px rgba(0, 251, 251, 0.5);
 }
 
+#input1 {
+  appearance: none;
+  background-color: transparent;
+  font: inherit;
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  border: 0.1em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+}

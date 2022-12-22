@@ -34,6 +34,9 @@ let risposte = new Chart(myChart, {
         radius: 4,
       },
     ],
+    let arc = d3.arc()
+.innerRadius(radius * 0.5) // Dimensioni del foro donut
+.outerRadius(radius * 0.8)
   },
 
   options: {

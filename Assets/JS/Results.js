@@ -50,8 +50,8 @@ let risposte = new Chart(myChart, {
 });
 
 const totale = corrette + sbagliate;
-const percentualeCorrette = ((corrette / totale) * 100).toFixed(2);
-const percentualeSbagliate = ((sbagliate / totale) * 100).toFixed(2);
+const percentualeCorrette = ((corrette / totale) * 100).toFixed(1);
+const percentualeSbagliate = ((sbagliate / totale) * 100).toFixed(1);
 
 //percentuali delle risposte corrette e sbagliate
 document.getElementById("percentualeCorrette").innerHTML =
@@ -60,5 +60,7 @@ document.getElementById("percentualeSbagliate").innerHTML =
   percentualeSbagliate + "%";
 
 //raw data
-document.getElementById("numeroCorrette").innerHTML = corrette + "/" + totale;
-document.getElementById("numeroSbagliate").innerHTML = sbagliate + "/" + totale;
+document.getElementById("numeroCorrette").innerHTML =
+  corrette + "/" + totale + " questions";
+document.getElementById("numeroSbagliate").innerHTML =
+  sbagliate + "/" + totale + " questions";

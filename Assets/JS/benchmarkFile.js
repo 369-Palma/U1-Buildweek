@@ -255,10 +255,10 @@ const risposte = (posizione, domande) => {
   document.getElementById("contenitoreTimer");
   setTimeout(() => {
     if (posizione < domande.length - 1) {
-      risposteIncorrette.push(null);
+      risposteIncorrette.push({});
       counterIncrease();
     } else {
-      risposteIncorrette.push(null);
+      risposteIncorrette.push({});
       lastQuestion();
     }
   }, 6000);

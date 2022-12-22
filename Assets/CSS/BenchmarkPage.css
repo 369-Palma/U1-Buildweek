@@ -8,8 +8,8 @@ body {
   line-height: 1.5;
   font-family: Arial, Helvetica, sans-serif;
 }
-#benchmarkTitolo {
-  font-size: 36px;
+#titoloBenchmark{
+  font-size: 1.5em;
 }
 
 #logo {

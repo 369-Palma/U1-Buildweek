@@ -31,12 +31,8 @@ let risposte = new Chart(myChart, {
         borderColor: "white",
         hoverBorderWidth: 3,
         hoverBorderColor: "white",
-        radius: 4,
       },
     ],
-    let arc = d3.arc()
-.innerRadius(radius * 0.5) // Dimensioni del foro donut
-.outerRadius(radius * 0.8)
   },
 
   options: {

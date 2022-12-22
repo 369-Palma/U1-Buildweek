@@ -160,7 +160,6 @@ function shuffle(array) {
 }
 
 const risposte = (posizione, domande) => {
-
   //>>> ************* timer ****************>>>
   // const timer = () => {
   //   // tempo attuale in numero con gettime + 60secs (1000 =1sec)
@@ -174,12 +173,11 @@ const risposte = (posizione, domande) => {
   //     // quanto tempo manca tra end e now, tempo attuale e il tempo attuale piu 6
   //     let tempoManca = end - now;
 
-
   //     // matematica di cambio secondi minuti
   //     let minutes = Math.floor((tempoManca % (1000 * 60 * 60)) / (1000 * 60));
   //     let seconds = Math.floor((tempoManca % (1000 * 60)) / 1000);
 
-  //     // Output 
+  //     // Output
   //     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
 
   //     // se il timer è 0 cambia il tiemr a next qeustion
@@ -213,13 +211,11 @@ const risposte = (posizione, domande) => {
         // se clicco questop bottone vuol dire che la risposta è sbagliata -- pusho in risposte incorrette
         incorrette(domande[posizione]);
         counterIncrease();
-
       };
     } else {
       newButton.onclick = () => {
         incorrette(domande[posizione]);
         lastQuestion();
-
       };
     }
     // document.getElementById("bottoni").appendChild(newButton);// si fa alla fine con un ciclo forEach
@@ -253,6 +249,19 @@ const risposte = (posizione, domande) => {
     // per ogni elemento lo aggiungo al div bottoni (dopo averli mischiati)
     document.getElementById("bottoni").appendChild(element);
   });
+  const newTimer = document.createElement("div");
+  newTimer.id = "timer";
+  newTimer.classList.add("tempo");
+  document.getElementById("contenitoreTimer");
+  setTimeout(() => {
+    if (posizione < domande.length - 1) {
+      risposteIncorrette.push(null);
+      counterIncrease();
+    } else {
+      risposteIncorrette.push(null);
+      lastQuestion();
+    }
+  }, 1000);
 };
 /*-------------------TOGGLE DEI TASTI---------------------------------*/
 const aggiungiClasseSelected = (event) => {
@@ -314,14 +323,6 @@ window.onload = () => {
 
 // click_body.addEventListener("click", (event) => {
 
-
-
-
-
-
-
-
-
 //   // ************** CODICE PER LA PAGINA CHE PUSHA I DATI ***************
 function gotoResults() {
   const correttePusha = risposteCorrette.length;
@@ -339,6 +340,3 @@ function gotoResults() {
 
   window.open(link);
 }
-
-
-

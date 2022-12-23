@@ -191,3 +191,25 @@ if (percentualeCorrette >= 60) {
     "You didn't pass the exam.";
   document.getElementById("resultstestoCerchio").innerText = "";
 }
+
+const superato = document.getElementById("resultstitoloCerchioRisultato");
+
+const superato1 = document.getElementById("resultstitoloCerchioRisultato");
+
+const certificato = document.getElementById("resultstitoloCerchioRisultato");
+const nonSuperato = document.getElementById("resultstitoloCerchioRisultato");
+if (percentualeCorrette >= 60) {
+  superato.innerText = "Congratulations!";
+  superato1.innerText = "You passed the exam.";
+  certificato.innerText = "We'll send you the certificate in few minutes.";
+} else {
+  nonSuperato.innerText = "Oh no! Try again";
+  document.getElementById("resultsrisultatoTestoBlu").innerText =
+    "You didn't pass the exam.";
+  document.getElementById("resultstestoCerchio").innerText = "";
+}
+document.getElementById("divRisultato").appendChild(pRisultato);
+
+document.getElementsByClassName("resultscerchio").appendChild("");
+document.getElementById("myChart").appendChild(newDiv);
+document.getElementById("myChart").appendChild(newDiv);

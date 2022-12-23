@@ -19,7 +19,7 @@ body {
   display: flex;
 }
 
-/* .bottone {
+.bottone {
   background-color: #00054b;
   color: #fff;
 
@@ -27,7 +27,7 @@ body {
   width: 30%;
   height: 35px;
   margin: 2%;
-} */
+}
 .bottone {
   color: #fff;
 

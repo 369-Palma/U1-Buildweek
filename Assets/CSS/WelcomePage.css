@@ -82,19 +82,53 @@ body img {
   box-shadow: 0px 0px 40px 5px rgba(0, 251, 251, 0.5);
 }
 
+.basso span {
+  padding-bottom: 3.5em;
+  margin-left: 0.5em;
+}
+
+/* ***********custom checkbox********** */
+
+#input1 {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+}
+
 #input1 {
   appearance: none;
   background-color: transparent;
   font: inherit;
   color: currentColor;
-  width: 1em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
   border: 0.1em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
 }
 
-.basso span {
-  padding-bottom: 3.5em;
-  margin-left: 0.5em;
+#input1 {
+  display: grid;
+  place-content: center;
+}
+
+#input1::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+}
+
+#input1:checked::before {
+  transform: scale(1);
+
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+#input1::before {
+  background-color: #b40089;
 }

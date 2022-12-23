@@ -16,6 +16,7 @@ main {
   text-align: left;
   font-size: 1.5em;
   padding-left: 25%;
+  padding-top: 2.5em;
 }
 
 body img {
@@ -26,8 +27,9 @@ body img {
 #logo {
   text-align: left;
   margin-bottom: 2em;
-  margin-left: auto;
-  margin-right: auto;
+  padding-right: 90%;
+  margin-left: 2em;
+  width: 1000px;
 }
 
 .titolo p {

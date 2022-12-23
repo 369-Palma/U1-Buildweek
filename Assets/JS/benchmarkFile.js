@@ -95,111 +95,33 @@ const questions = [
   },
 ];
 /*-----TITOLO------*/
-
-// const random = () => {
-//   return Math.floor(Math.random() * 10);
-// };
-
 titolo = (posizione, domande) => {
   document.getElementById("titoloBenchmark").innerHTML = "";
   const newTitle = document.createElement("h1");
   newTitle.innerHTML = domande[posizione].question;
   document.getElementById("titoloBenchmark").appendChild(newTitle);
 };
-
 /*----------ARRAY DI RISPOSTE CORRETTE E NON CORRETTE-----------*/
 
-// let risposteIncorrette = [];
-// let risposteCorrette = [];
-
-// const incorrette = (array) => {
-//   for (let i = 0; i < array.length; i++) {
-//     risposteIncorrette.push(questions[i].incorrect_answers);
-//   }
-//   return risposteIncorrette;
-// };
-// console.log(incorrette(questions));
-
-// const corrette = (array) => {
-//   for (let i = 0; i < array.length; i++) {
-//     risposteCorrette.push(questions[i].correct_answer);
-//   }
-//   return risposteCorrette;
-// };
-// console.log(corrette(questions));
 let risposteIncorrette = [];
 let risposteCorrette = [];
 
 const incorrette = (question) => {
   risposteIncorrette.push(question);
+  document.getElementById("app");
 };
 
 const corrette = (question) => {
   risposteCorrette.push(question);
+  document.getElementById("app");
 };
-
-/*----------------CAST DEI BOTTONI-copiato da google----------------------------*/
-function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-
+/*----------------CAST DEI BOTTONI-----------------------------*/
 const risposte = (posizione, domande) => {
-  //>>> ************* timer ****************>>>
-  // const timer = () => {
-  //   // tempo attuale in numero con gettime + 60secs (1000 =1sec)
-  //   let end = new Date().getTime() + 60000;
-  //   // fa intervali di updates ogni secondo ... sotto }, 1000)
-  //   let repeat = setInterval(function () {
-
-  //     // Get today's date and time
-  //     let now = new Date().getTime();
-
-  //     // quanto tempo manca tra end e now, tempo attuale e il tempo attuale piu 6
-  //     let tempoManca = end - now;
-
-  //     // matematica di cambio secondi minuti
-  //     let minutes = Math.floor((tempoManca % (1000 * 60 * 60)) / (1000 * 60));
-  //     let seconds = Math.floor((tempoManca % (1000 * 60)) / 1000);
-
-  //     // Output
-  //     document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-
-  //     // se il timer è 0 cambia il tiemr a next qeustion
-  //     if (tempoManca < 0) {
-  //       clearInterval(repeat);
-  //       document.getElementById("timer").innerHTML = "next question";
-
-  //     }
-  //   }, 1000);
-  // }
-  // timer()
-
-  //<<< ************* timer ****************<<<
-
-  //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
+  timer(); //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
   let possibleAnswers = []; //array che conterrà i bottoni
-
   document.getElementById("bottoni").innerHTML = ""; //pulizia div "bottoni"
-  timer();
   for (i = 0; i < domande[posizione].incorrect_answers.length; i++) {
     //lunghezza dinamica (fix true/false issues)
-
     const newButton = document.createElement("button");
     newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
@@ -219,13 +141,10 @@ const risposte = (posizione, domande) => {
         lastQuestion();
       };
     }
-    // document.getElementById("bottoni").appendChild(newButton);// si fa alla fine con un ciclo forEach
     newButton.innerHTML = domande[posizione].incorrect_answers[i]; //resa dinamica con parametri in ingresso
     possibleAnswers.push(newButton); //push dell'array
   }
-
   const newButton = document.createElement("button");
-
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
   newButton.onmouseover = aggiungiClasseSelected;
@@ -242,18 +161,12 @@ const risposte = (posizione, domande) => {
     };
   }
   newButton.innerHTML = domande[posizione].correct_answer;
-  // document.getElementById("bottoni").appendChild(newButton);//vedi su
   possibleAnswers.push(newButton);
-
   shuffle(possibleAnswers); // richiamo la funzione per mischiare l'array (copiata da internet)
   possibleAnswers.forEach((element) => {
     // per ogni elemento lo aggiungo al div bottoni (dopo averli mischiati)
     document.getElementById("bottoni").appendChild(element);
   });
-  const newTimer = document.createElement("div");
-  newTimer.id = "timer";
-  newTimer.classList.add("tempo");
-  document.getElementById("contenitoreTimer");
   setTimeout(() => {
     if (posizione < domande.length - 1) {
       risposteIncorrette.push({});
@@ -262,87 +175,46 @@ const risposte = (posizione, domande) => {
       risposteIncorrette.push({});
       lastQuestion();
     }
-  }, 20000);
+  }, 200000000);
 };
-/*-------------------TOGGLE DEI TASTI---------------------------------*/
+/*--------------funzioni varie che verranno riprese in risposte-----------------*/
+
+//SHUFFLE
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+}
+//TOGGLE
+let counter = 0;
 const aggiungiClasseSelected = (event) => {
   const elementoCliccato = event.target;
-
   elementoCliccato.classList.toggle("selected");
 };
-let counter = 0;
-
+//AUMENTO DEL COUNTER
 const counterIncrease = () => {
   counter++; //messo sopra counter++ cosi incrementa il valore prima di fare tutto
   document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
   titolo(counter, questions);
   risposte(counter, questions); //richiamo funzione inserendo i parametri delle domande e posizione aggiornata
-  // document.addEventListener(`click`, risposte());//useless
 };
 
+//goToResultsPage
 const lastQuestion = () => {
   gotoResults();
 };
-
-/*---------------TIMER-----------*/
-// timeDuration = 2;
-// timer(timeDuration, document.querySelector("#tempo"));// da mettere dentro cast bottoni o titolo
-// function timer(durata, display) {
-//   let tempo = durata,
-//     minuti,
-//     secondi;
-//   let intervallo = setIntervallo(function () {
-//     minuti = parseInt(tempo / 60, 10);
-//     secondi = parseInt(tempo % 60, 10);
-//     minuti = minutes < 10 ? "0" + minuti : minuti;
-//     secondi = secondi > 10 ? "0" + secondi : secondi;
-
-//     display.textContent = minuti + ":" + secondi;
-
-//     if (--tempo < 0) {
-//       tempo = durata;
-//       counter++;
-//       if (counter < possibleAnswers) {
-//         risposte();
-//       }
-//     }
-//   });
-// }
-/*-------WINDOW ONLOAD----*/
-
-window.onload = () => {
-  risposte(counter, questions);
-  // inserisco parametri
-  document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
-  document.getElementById("totaleDomande").innerHTML = "/" + questions.length;
-
-  titolo(counter, questions); //inserisco parametri
-};
-
-// // ************** CODICE PER COLLEGARE CON L'ALTRA PAGINA VARIABILI DA CAMBIARE ***************
-
-// const click_body = document.querySelector("body")
-
-// click_body.addEventListener("click", (event) => {
-
-//   // ************** CODICE PER LA PAGINA CHE PUSHA I DATI ***************
-function gotoResults() {
-  const correttePusha = risposteCorrette.length;
-  const sbagliatePusha = risposteIncorrette.length;
-
-  let urlP = new URLSearchParams();
-  urlP.append("correct", correttePusha);
-  urlP.append("wrong", sbagliatePusha);
-
-  // metter i datti nel url
-  let link = "ResultsPage.html?" + urlP.toString();
-  location.href = link;
-
-  // apre la nuova pagina
-
-  window.open(link);
-}
-
+/*-------TIMER---------*/
 function timer() {
   const FULL_DASH_ARRAY = 283;
   const WARNING_THRESHOLD = 10;
@@ -353,11 +225,11 @@ function timer() {
       color: "green",
     },
     warning: {
-      color: "orange",
+      color: "green",
       threshold: WARNING_THRESHOLD,
     },
     alert: {
-      color: "red",
+      color: "green",
       threshold: ALERT_THRESHOLD,
     },
   };
@@ -423,7 +295,7 @@ function timer() {
 
     return `${minutes}:${seconds}`;
   }
-
+  //possibilità di rimuoverlo
   function setRemainingPathColor(timeLeft) {
     const { alert, warning, info } = COLOR_CODES;
     if (timeLeft <= alert.threshold) {
@@ -442,6 +314,7 @@ function timer() {
         .classList.add(warning.color);
     }
   }
+  //possibilità di rimuoverlo
 
   function calculateTimeFraction() {
     const rawTimeFraction = timeLeft / TIME_LIMIT;
@@ -456,4 +329,30 @@ function timer() {
       .getElementById("base-timer-path-remaining")
       .setAttribute("stroke-dasharray", circleDasharray);
   }
+}
+
+/*-------WINDOW ONLOAD----*/
+
+window.onload = () => {
+  risposte(counter, questions);
+  // inserisco parametri
+  document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
+  document.getElementById("totaleDomande").innerHTML = "/" + questions.length;
+
+  titolo(counter, questions); //inserisco parametri
+};
+
+//   // ************** CODICE PER LA PAGINA CHE PUSHA I DATI ***************
+function gotoResults() {
+  const correttePusha = risposteCorrette.length;
+  const sbagliatePusha = risposteIncorrette.length;
+
+  let urlP = new URLSearchParams();
+  urlP.append("correct", correttePusha);
+  urlP.append("wrong", sbagliatePusha);
+  // metter i datti nel url
+  let link = "ResultsPage.html?" + urlP.toString();
+  location.href = link;
+  // apre la nuova pagina
+  window.open(link);
 }

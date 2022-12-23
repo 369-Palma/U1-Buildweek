@@ -27,6 +27,7 @@ main {
 
 main h1 {
   font-size: 1.7em;
+  font-weight: 700;
 }
 
 #logo {
@@ -34,11 +35,15 @@ main h1 {
   margin-bottom: 2em;
   padding-right: 90%;
   margin-left: 2em;
+  width: 130px;
 }
-
+.voto {
+  font-size: 0.9em;
+}
 #star10 {
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 1em;
 }
 
 #star10 img {
@@ -82,12 +87,13 @@ main h1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1.5em;
-  font-weight: 700;
+  margin-top: 2.5em;
+  font-weight: 700px;
 }
 
 .feedback {
-  font-size: 0.8em;
+  font-size: 0.9em;
+  margin-bottom: 1em;
 }
 
 /* *********** style star ************ */

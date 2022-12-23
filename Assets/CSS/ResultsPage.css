@@ -8,7 +8,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-
 header {
   text-align: left;
 }
@@ -16,11 +15,14 @@ header {
 body img {
   height: 12%;
   width: 12%;
-
+}
+section {
+  padding-top: 1em;
+  line-height: 2.5em;
 }
 
 .resultstitolo {
-  font-size: 2.5em;
+  font-size: 2.8em;
   font-weight: bold;
 }
 
@@ -37,18 +39,16 @@ body img {
 
 .resultsbox-risposta1 {
   margin: 9% 5%;
-
+  padding-top: 2em;
 }
 
 .resultsbox-risposta2 {
   margin: 9% 5%;
   text-align: right;
-
+  padding-top: 2em;
 }
-
 .resultsrisposte {
   font-size: 3.2em;
-
 }
 
 .resultspercentuale {
@@ -65,9 +65,6 @@ body img {
   text-align: center;
   padding-top: 0.1%;
 }
-
-
-
 #resultsrisultatoTestoBlu {
   color: #0ff;
   font-weight: bold;
@@ -80,15 +77,21 @@ body img {
 
 .resultsspaceButton {
   padding-top: 1%;
+  padding-left: 1.5em;
 }
 
 .resultsbuttonRateUS {
-  height: 35px;
-  width: 140px;
-  background-color: #00fbfb00;
+  height: 58px;
+  width: 190px;
+  background-color: rgba(0, 251, 251, 0);
   color: white;
   font-size: large;
   font-weight: bold;
-  border: 1px solid white;
-  box-shadow: 0px 0px 10px 5px rgba(130, 150, 150, 0.5);
+  border: 2px solid white;
+  box-shadow: rgb(130 150 150 / 50%) 0px 0px 10px 5px;
+}
+.resultsbox-risposta2 {
+  margin: 9% 5%;
+  text-align: right;
+  padding-top: 2.5em;
 }

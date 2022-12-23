@@ -22,7 +22,9 @@ body img {
 
 main {
   font-size: 1.5em;
-  padding: 9%;
+  padding: 8%;
+  margin-top: 2em;
+  padding-top: 1.5em;
 }
 
 main h1 {
@@ -76,8 +78,8 @@ main h1 {
 }
 
 .celeste {
-  height: 35px;
-  width: 135px;
+  height: 50px;
+  width: 150px;
   background-color: #00fbfb;
   color: #0b113b;
   font-size: 60%;
@@ -88,7 +90,7 @@ main h1 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2.5em;
-  font-weight: 700px;
+  font-weight: 800;
 }
 
 .feedback {

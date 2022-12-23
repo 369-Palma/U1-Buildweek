@@ -35,8 +35,9 @@ section {
   align-content: center;
   text-align: left;
   justify-content: space-around;
+  padding-right: 2em;
+  padding-left: 2em;
 }
-
 .resultsbox-risposta1 {
   margin: 9% 5%;
   padding-top: 2em;
@@ -48,10 +49,11 @@ section {
   padding-top: 2em;
 }
 .resultsrisposte {
-  font-size: 3.2em;
+  font-size: 3em;
 }
 
 .resultspercentuale {
+  padding-top: 0.3em;
   font-size: 3.2em;
   font-weight: bold;
   line-height: 0.5em;
@@ -76,10 +78,9 @@ section {
 }
 
 .resultsspaceButton {
-  padding-top: 1%;
+  padding-top: 1em;
   padding-left: 1.5em;
 }
-
 .resultsbuttonRateUS {
   height: 58px;
   width: 190px;

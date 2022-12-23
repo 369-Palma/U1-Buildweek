@@ -2,15 +2,14 @@ body {
   background-image: url(../images/bg.jpg);
   background-size: cover;
   padding: 3%;
-  
+
   color: white;
   text-align: center;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
-
 }
 #titoloBenchmark {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 #logo {
@@ -52,7 +51,7 @@ header {
 }
 
 .selected {
-  background-color: #620062;
+  background-color: hsl(316deg 100% 37%);
 }
 
 .benchmarkTitolo {
@@ -64,15 +63,25 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: ;
+}
+
+#bottone1,
+#bottone2,
+#bottone3,
+#bottone0 {
+  box-shadow: -2px -3px #e8d3e6;
 }
 
 .numeroDomande {
   display: flex;
   flex-direction: wrap;
   justify-content: center;
+  font-size: 1.1em;
 }
 .totaleDomande {
-  color: purple;
+  color: hsl(316deg 100% 37%);
+  font-weight: 700;
 }
 
 /* Sets the containers height and width */

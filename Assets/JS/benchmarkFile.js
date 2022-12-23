@@ -94,6 +94,9 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+/*-----COSTANTI/VARIABILI---------*/
+let counter = 0;
+
 /*-----TITOLO------*/
 titolo = (posizione, domande) => {
   document.getElementById("titoloBenchmark").innerHTML = "";
@@ -115,12 +118,17 @@ const corrette = (question) => {
 };
 /*----------------CAST DEI BOTTONI-----------------------------*/
 const risposte = (posizione, domande) => {
-  timer(); //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
-  let possibleAnswers = []; //array che conterrà i bottoni
-  document.getElementById("bottoni").innerHTML = ""; //pulizia div "bottoni"
+  //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
+  timer();
 
+  //array che conterrà i bottoni
+  let possibleAnswers = [];
+
+  //pulizia div "bottoni"
+  document.getElementById("bottoni").innerHTML = "";
+
+  //lunghezza dinamica (fix true/false issues)
   for (i = 0; i < domande[posizione].incorrect_answers.length; i++) {
-    //lunghezza dinamica (fix true/false issues)
     const newButton = document.createElement("button");
     newButton.id = "bottone" + i;
     newButton.classList.add("bottone");
@@ -133,7 +141,6 @@ const risposte = (posizione, domande) => {
         // se clicco questop bottone vuol dire che la risposta è sbagliata -- pusho in risposte incorrette
         incorrette(domande[posizione]);
         counterIncrease();
-        clearInterval(timerInterval);
       };
     } else {
       newButton.onclick = () => {
@@ -141,8 +148,12 @@ const risposte = (posizione, domande) => {
         lastQuestion();
       };
     }
-    newButton.innerHTML = domande[posizione].incorrect_answers[i]; //resa dinamica con parametri in ingresso
-    possibleAnswers.push(newButton); //push dell'array
+
+    //resa dinamica con parametri in ingresso
+    newButton.innerHTML = domande[posizione].incorrect_answers[i];
+
+    //push dell'array
+    possibleAnswers.push(newButton);
   }
 
   const newButton = document.createElement("button");
@@ -152,7 +163,8 @@ const risposte = (posizione, domande) => {
   newButton.onmouseout = aggiungiClasseSelected;
   if (posizione < domande.length - 1) {
     newButton.onclick = () => {
-      corrette(domande[posizione]); //se clicco questo bottone vuol dire che la risposta è giusta-- pusho in risposte corrette
+      //se clicco questo bottone vuol dire che la risposta è giusta-- pusho in risposte corrette
+      corrette(domande[posizione]);
       counterIncrease();
     };
   } else {
@@ -180,7 +192,7 @@ const risposte = (posizione, domande) => {
       risposteIncorrette.push({});
       lastQuestion();
     }
-  }, 20000);
+  }, TIME_LIMIT * 1000);
 };
 /*--------------funzioni varie che verranno riprese in risposte-----------------*/
 
@@ -188,11 +200,13 @@ const risposte = (posizione, domande) => {
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
+
   // While there remain elements to shuffle.
   while (currentIndex != 0) {
     // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
+
     // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
@@ -202,140 +216,144 @@ function shuffle(array) {
   return array;
 }
 //TOGGLE
-let counter = 0;
+
 const aggiungiClasseSelected = (event) => {
   const elementoCliccato = event.target;
   elementoCliccato.classList.toggle("selected");
 };
+
 //AUMENTO DEL COUNTER
 const counterIncrease = () => {
   //messo sopra counter++ cosi incrementa il valore prima di fare tutto
   counter++;
   document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
   titolo(counter, questions);
-  risposte(counter, questions); //richiamo funzione inserendo i parametri delle domande e posizione aggiornata
+
+  //richiamo funzione inserendo i parametri delle domande e posizione aggiornata
+  risposte(counter, questions);
 };
 
 //goToResultsPage
 const lastQuestion = () => {
   gotoResults();
 };
-/*-------TIMER---------*/
-function timer() {
-  const FULL_DASH_ARRAY = 283;
-  const WARNING_THRESHOLD = 10;
-  const ALERT_THRESHOLD = 5;
 
-  const COLOR_CODES = {
-    info: {
-      color: "green",
-    },
-    warning: {
-      color: "green",
-      threshold: WARNING_THRESHOLD,
-    },
-    alert: {
-      color: "green",
-      threshold: ALERT_THRESHOLD,
-    },
-  };
+/*-------TIMER---------*/ //NON IMPLEMENTATO
+// function timer() {
+//   const FULL_DASH_ARRAY = 283;
+//   const WARNING_THRESHOLD = 10;
+//   const ALERT_THRESHOLD = 5;
 
-  const TIME_LIMIT = 20;
-  let timePassed = 0;
-  let timeLeft = TIME_LIMIT;
-  let timerInterval = null;
-  let remainingPathColor = COLOR_CODES.info.color;
+//   const COLOR_CODES = {
+//     info: {
+//       color: "turquoise",
+//     },
+//     warning: {
+//       color: "turquoise",
+//       threshold: WARNING_THRESHOLD,
+//     },
+//     alert: {
+//       color: "turquoise",
+//       threshold: ALERT_THRESHOLD,
+//     },
+//   };
 
-  document.getElementById("app").innerHTML = `
-<div class="base-timer">
-  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g class="base-timer__circle">
-      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-      <path
-        id="base-timer-path-remaining"
-        stroke-dasharray="283"
-        class="base-timer__path-remaining ${remainingPathColor}"
-        d="
-          M 50, 50
-          m -45, 0
-          a 45,45 0 1,0 90,0
-          a 45,45 0 1,0 -90,0
-        "
-      ></path>
-    </g>
-  </svg>
-  <span id="base-timer-label" class="base-timer__label">${formatTime(
-    timeLeft
-  )}</span>
-</div>
-`;
+//   const TIME_LIMIT = 20;
+//   let timePassed = 0;
+//   let timeLeft = TIME_LIMIT;
+//   let timerInterval = null;
+//   let remainingPathColor = COLOR_CODES.info.color;
 
-  startTimer();
+//   document.getElementById("app").innerHTML = `
+// <div class="base-timer">
+//   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+//     <g class="base-timer__circle">
+//       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+//       <path
+//         id="base-timer-path-remaining"
+//         stroke-dasharray="283"
+//         class="base-timer__path-remaining ${remainingPathColor}"
+//         d="
+//           M 50, 50
+//           m -45, 0
+//           a 45,45 0 1,0 90,0
+//           a 45,45 0 1,0 -90,0
+//         "
+//       ></path>
+//     </g>
+//   </svg>
+//   <span id="base-timer-label" class="base-timer__label">${formatTime(
+//     timeLeft
+//   )}</span>
+// </div>
+// `;
 
-  function onTimesUp() {
-    clearInterval(timerInterval);
-  }
+//   startTimer();
 
-  function startTimer() {
-    timerInterval = setInterval(() => {
-      timePassed = timePassed += 1;
-      timeLeft = TIME_LIMIT - timePassed;
-      document.getElementById("base-timer-label").innerHTML =
-        formatTime(timeLeft);
-      setCircleDasharray();
-      setRemainingPathColor(timeLeft);
+//   function onTimesUp() {
+//     clearInterval(timerInterval);
+//   }
 
-      if (timeLeft === 0) {
-        onTimesUp();
-      }
-    }, 1000);
-  }
+//   function startTimer() {
+//     timerInterval = setInterval(() => {
+//       timePassed = timePassed += 1;
+//       timeLeft = TIME_LIMIT - timePassed;
+//       document.getElementById("base-timer-label").innerHTML =
+//         formatTime(timeLeft);
+//       setCircleDasharray();
+//       setRemainingPathColor(timeLeft);
 
-  function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
+//       if (timeLeft === 0) {
+//         onTimesUp();
+//       }
+//     }, 1000);
+//   }
 
-    if (seconds < 10) {
-      seconds = `0${seconds}`;
-    }
+//   function formatTime(time) {
+//     const minutes = Math.floor(time / 60);
+//     let seconds = time % 60;
 
-    return `${minutes}:${seconds}`;
-  }
-  //possibilità di rimuoverlo
-  function setRemainingPathColor(timeLeft) {
-    const { alert, warning, info } = COLOR_CODES;
-    if (timeLeft <= alert.threshold) {
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.remove(warning.color);
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.add(alert.color);
-    } else if (timeLeft <= warning.threshold) {
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.remove(info.color);
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.add(warning.color);
-    }
-  }
-  //possibilità di rimuoverlo
+//     if (seconds < 10) {
+//       seconds = `0${seconds}`;
+//     }
 
-  function calculateTimeFraction() {
-    const rawTimeFraction = timeLeft / TIME_LIMIT;
-    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-  }
+//     return `${minutes}:${seconds}`;
+//   }
+//   //possibilità di rimuoverlo
+//   function setRemainingPathColor(timeLeft) {
+//     const { alert, warning, info } = COLOR_CODES;
+//     if (timeLeft <= alert.threshold) {
+//       document
+//         .getElementById("base-timer-path-remaining")
+//         .classList.remove(warning.color);
+//       document
+//         .getElementById("base-timer-path-remaining")
+//         .classList.add(alert.color);
+//     } else if (timeLeft <= warning.threshold) {
+//       document
+//         .getElementById("base-timer-path-remaining")
+//         .classList.remove(info.color);
+//       document
+//         .getElementById("base-timer-path-remaining")
+//         .classList.add(warning.color);
+//     }
+//   }
+//   //possibilità di rimuoverlo
 
-  function setCircleDasharray() {
-    const circleDasharray = `${(
-      calculateTimeFraction() * FULL_DASH_ARRAY
-    ).toFixed(0)} 283`;
-    document
-      .getElementById("base-timer-path-remaining")
-      .setAttribute("stroke-dasharray", circleDasharray);
-  }
-}
+//   function calculateTimeFraction() {
+//     const rawTimeFraction = timeLeft / TIME_LIMIT;
+//     return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+//   }
+
+//   function setCircleDasharray() {
+//     const circleDasharray = `${(
+//       calculateTimeFraction() * FULL_DASH_ARRAY
+//     ).toFixed(0)} 283`;
+//     document
+//       .getElementById("base-timer-path-remaining")
+//       .setAttribute("stroke-dasharray", circleDasharray);
+//   }
+// }
 
 /*-------WINDOW ONLOAD----*/
 

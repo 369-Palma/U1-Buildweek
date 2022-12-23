@@ -45,6 +45,10 @@ body {
   width: 30%;
   font-size: 1.5rem;
 }
+header {
+  display: flex;
+  justify-content: space-between;
+}
 
 .selected {
   background-color: #620062;

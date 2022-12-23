@@ -1,99 +1,94 @@
 body {
-    background-image: url(../images/bg.jpg);
-    background-size: cover;
-    padding: 3%;
-    margin-left: 2em;
-    color: white;
-    text-align: center;
-    line-height: 1.5;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  padding: 3%;
+  margin-left: 2em;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  header {
-    text-align: left;
-  }
+header {
+  text-align: left;
+}
 
-  body img {
-    height: 12%;
-    width: 12%;
+body img {
+  height: 12%;
+  width: 12%;
 
-  }
+}
 
-  .resultstitolo {
-    font-size: 2.5em;
-    font-weight: bold;
-  }
+.resultstitolo {
+  font-size: 2.5em;
+  font-weight: bold;
+}
 
-  .resultdescription {
-    font-size: 1.5em;
-  }
+.resultdescription {
+  font-size: 1.5em;
+}
 
-  .resultsMain{
-    display: flex;
-    align-content: center;
-    text-align: left;
-    justify-content: space-around;
-  }
+.resultsMain {
+  display: flex;
+  align-content: center;
+  text-align: left;
+  justify-content: space-around;
+}
 
-  .resultsbox-risposta1 {
-    margin: 11% 5%;
-    
-  }
+.resultsbox-risposta1 {
+  margin: 11% 5%;
 
-  .resultsbox-risposta2 {
-    margin: 11% 5%;
-    text-align: right;
-    
-  }
+}
 
-  .resultsrisposte {
-    font-size: 3.2em;
-    
-  }
+.resultsbox-risposta2 {
+  margin: 11% 5%;
+  text-align: right;
 
-  .resultspercentuale {
-    font-size: 3.2em;
-    font-weight: bold;
-    line-height: 0.5em;
-  }
+}
 
-  .resultsrisultato{
-    line-height: 3em;
-  }
+.resultsrisposte {
+  font-size: 3.2em;
 
-  .resultscerchio {
-    margin: 0.5% 0.5%;
-    text-align: center;
-    padding-top: 0.1%;
-  }
+}
+
+.resultspercentuale {
+  font-size: 3.2em;
+  font-weight: bold;
+  line-height: 0.5em;
+}
+
+.resultsrisultato {
+  line-height: 3em;
+}
+
+.resultscerchio {
+  margin: 0.5% 0.5%;
+  text-align: center;
+  padding-top: 0.1%;
+}
 
 
-#resultstitoloCerchioRisultato {
-    font-size: 1.3em;
-    font-weight: bold;
-    padding-top: 2%;
-  }
 
 #resultsrisultatoTestoBlu {
-    color: #0ff;
-    font-weight: bold;
-  }
+  color: #0ff;
+  font-weight: bold;
+}
 
-  #resultstestoCerchio {
-    padding: 8% 15% 2% 15% ;
-  }
+#resultstestoCerchio {
+  padding: 8% 15% 2% 15%;
+}
 
-  .resultsspaceButton {
-    padding-top: 1%;
-  }
+.resultsspaceButton {
+  padding-top: 1%;
+}
 
-  .resultsbuttonRateUS {
-    height: 35px;
-    width: 140px;
-    background-color: #00fbfb00;
-    color:white ;    
-    font-size: large;
-    font-weight: bold;
-    border: 1px solid white;
-    box-shadow: 0px 0px 10px 5px rgba(130, 150, 150, 0.5);
-  }
+.resultsbuttonRateUS {
+  height: 35px;
+  width: 140px;
+  background-color: #00fbfb00;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border: 1px solid white;
+  box-shadow: 0px 0px 10px 5px rgba(130, 150, 150, 0.5);
+}

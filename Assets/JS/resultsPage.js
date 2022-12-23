@@ -20,7 +20,7 @@ else {
 }
 
 
-// *********** Plugin **************
+// >>>>>>*********** Plugin **************>>>>>
 
 Chart.pluginService.register({
   beforeDraw: function (chart) {
@@ -104,6 +104,7 @@ Chart.pluginService.register({
     }
   }
 });
+// <<<<<<<*********** Plugin **************<<<<<
 
 
 

@@ -131,7 +131,7 @@ let risposte = new Chart(myChart, {
         label: "Risposte",
         data: [sbagliate, corrette],
         backgroundColor: ["#D20094", "#00FFFF"],
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: "white",
         hoverBorderWidth: 3,
         hoverBorderColor: "white",
@@ -147,7 +147,7 @@ let risposte = new Chart(myChart, {
         fontStyle: 'Arial', // Default is Arial
         sidePadding: 15, // Default is 20 (as a percentage)
         minFontSize: 18, // Default is 20 (in px), set to false and text will not wrap.
-        lineHeight: 30, // Default is 25 (in px), used for when text wraps
+        lineHeight: 20, // Default is 25 (in px), used for when text wraps
       }
     },
     title: {

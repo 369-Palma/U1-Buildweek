@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReusultsPage</title>
-    <link rel="stylesheet" href="/Assets/CSS/reset.css">
-    <link rel="stylesheet" href="/Assets/CSS/style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResultsPage</title>
+  <link rel="stylesheet" href="./Assets/CSS/reset.css" />
+  <link rel="stylesheet" href="./Assets/CSS/ResultsPage.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
+
 <body>
-    <header>
-        <img class="logo" src="/Assets/images/epicode_logo.png" alt="Logo-Epicode">
-    </header>
-    <main>
-        <section class="titolo">
-            <h1> Results </h1>
-            <h3>The summary of your answers: </h3>
-        </section>
-        <section>
-            <div class="box-risposta">
-              <p class="risposte">Correct</p>
-              <p class="percentuale"> Percentuale</p>
-              <p class="risultato"> risultato</p>
-            </div>
-            <div class="cerchio"> questo diventerà un cerchio
-                <p class="fraseRisultato">Frase che cambia a secondo del risultato</p>            
-            </div>
-            <div class="box-risposta">
-                <p class="risposte">Correct</p>
-                <p class="percentuale"> Percentuale</p>
-                <p class="risultato"> risultato</p>
-            </div>
-        </section>
-        <aside>
-           <button class="buttonRateUS">RATE US</button> 
-        </aside>
-    </main>
+  <header>
+    <img class="logo" src="./Assets/images/epicode_logo.png" alt="Logo-Epicode" />
+  </header>
+  <main class="results">
+    <section>
+      <p class="resultstitolo">Results</p>
+      <p class="resultdescription">The summary of your answers:</p>
+    </section>
+    <section class="resultsMain">
+      <div class="resultsbox-risposta1">
+        <p class="resultsrisposte">Correct</p>
+        <p id="percentualeCorrette" class="resultspercentuale"></p>
+        <!--a-->
+        <p id="numeroCorrette" class="resultsrisultato"></p>
+      </div>
+      <div class="resultscerchio">
+        <canvas id="myChart"></canvas>
+        <p id="resultsrisultatoTestoBlu">You passed the exam.</p>
+        <p id="resultstestoCerchio">
+          Testo vario da modificare relativamente al risultato del test
+        </p>
+      </div>
+      <div class="resultsbox-risposta2">
+        <p class="resultsrisposte">Wrong</p>
+        <p id="percentualeSbagliate" class="resultspercentuale"></p>
+        <!--a-->
+        <p id="numeroSbagliate" class="resultsrisultato"></p>
+      </div>
+    </section>
+    <form action="./FeedbackPage.html" class="resultsspaceButton">
+      <button class="resultsbuttonRateUS" type="submit">RATE US</button>
+    </form>
+  </main>
 </body>
-<script src="/Assets/JS/file.js"></script>
+<script src="./Assets/JS/resultsPage.js"></script>
+
 </html>

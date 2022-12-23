@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./Assets/CSS/reset.css" />
     <link rel="stylesheet" href="./Assets/CSS/FeedbackPage.css" />
   </head>
-
   <body>
     <header>
       <img id="logo" src="./Assets/images/epicode_logo.png" alt="my_logo" />
+      <img src="/Assets/images/epicode_logo.png" alt="my_logo" />
     </header>
 
     <main>
@@ -20,31 +20,38 @@
         <p>From 0 to 10, how likely are you to recommend EPICODE</p>
         <p>to a friend or colleague?</p>
       </div>
-      <div class="stelle">
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
-        <img src="./Assets/images/star.svg" alt="star" />
+      <div id="star10">
+        <img class="star piena" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
+        <img class="star" alt="star" />
       </div>
       <p class="feedback">
         Leave us an open feedback about your expericence so far
       </p>
       <div class="form1">
+        <form onsubmit="alert(`Form submitted successfully`)">
+          <input
+            class="comment"
+            type="text"
+            placeholder="Write your comment here"
+          />
+        </form>
         <input
-          class="comment"
-          type="text"
-          placeholder="write your comment here"
+          class="celeste"
+          type="button"
+          onclick="location.href='https://epicode.com/it';"
+          value="MORE INFO"
         />
-        <button class="celeste">more info</button>
       </div>
     </main>
 
-    <script src="./Assets/JS/file.js"></script>
+    <script src="./Assets/JS/file_feedback.js"></script>
   </body>
 </html>

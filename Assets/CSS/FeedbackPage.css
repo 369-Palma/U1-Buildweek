@@ -11,26 +11,36 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   display: block;
 }
+
 body img {
   height: 12%;
   width: 12%;
 }
+
 /* MAIN */
+
+main {
+  font-size: 1.5em;
+}
 
 main h1 {
   font-size: 1.7em;
 }
+
 #logo {
   text-align: left;
   margin-bottom: 2em;
-  width: 5em;
+  padding-right: 90%;
+  margin-left: 2em;
 }
-#stelle {
+
+#star10 {
   margin-right: auto;
   margin-left: auto;
 }
-#stelle img {
-  width: 1em;
+
+#star10 img {
+  width: 1.2em;
   margin-bottom: 1.5em;
   display: inline-flex;
   padding-right: 0.15em;
@@ -40,27 +50,50 @@ main h1 {
   margin-bottom: 1em;
   font-size: 0.8em;
 }
+
 .comment {
-  margin-top: 1.5em;
+  margin-top: 2em;
   font-size: 0.5em;
+  width: 60%;
+  border: 0;
+  border-bottom: 1px solid #c2128d;
+  color: white;
+  background: transparent;
+  transition: border-color 0.2s;
+  text-align: left;
+  padding-left: 2em;
 }
+
 .form1 {
   display: block;
 }
+
 .celeste {
   height: 35px;
-  width: 140px;
+  width: 135px;
   background-color: #00fbfb;
   color: #0b113b;
-  font-size: large;
+  font-size: 60%;
   font-weight: bold;
   border: 1px solid #11aac5;
   box-shadow: 0px 0px 40px 5px rgba(0, 251, 251, 0.5);
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1em;
+  margin-top: 1.5em;
+  font-weight: 700;
 }
+
 .feedback {
   font-size: 0.8em;
+}
+
+/* *********** style star ************ */
+
+.star {
+  content: url("../images/star.svg");
+}
+
+.star.piena ~ .star {
+  content: url("../images/star1.svg");
 }

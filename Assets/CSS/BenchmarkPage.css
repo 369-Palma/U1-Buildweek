@@ -73,6 +73,7 @@ header {
 }
 
 .numeroDomande {
+  margin-top: 3.7em;
   display: flex;
   flex-direction: wrap;
   justify-content: center;

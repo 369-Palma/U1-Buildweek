@@ -3,18 +3,14 @@
 
 // ****new logic star****
 
-const gruppoStelle = document.querySelector("#star10")
+const gruppoStelle = document.querySelector("#star10");
 
-const stelleArray = document.querySelectorAll(".star")
+const stelleArray = document.querySelectorAll(".star");
 
-gruppoStelle.onclick = event => {
-    const classeInside = event.target.classList
-    console.log("this is the class inside", classeInside)
+gruppoStelle.onclick = (event) => {
+  const classeInside = event.target.classList;
+  console.log("this is the class inside", classeInside);
 
-    stelleArray.forEach(stella => stella.classList.remove("piena")
-    )
-    classeInside.add("piena")
-
-
-
-}
+  stelleArray.forEach((stella) => stella.classList.remove("piena"));
+  classeInside.add("piena");
+};

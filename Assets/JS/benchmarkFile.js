@@ -108,18 +108,17 @@ let risposteCorrette = [];
 
 const incorrette = (question) => {
   risposteIncorrette.push(question);
-  document.getElementById("app");
 };
 
 const corrette = (question) => {
   risposteCorrette.push(question);
-  document.getElementById("app");
 };
 /*----------------CAST DEI BOTTONI-----------------------------*/
 const risposte = (posizione, domande) => {
   timer(); //inseriti parametri (obbligatori, in questo modo quando chiamo "counterIncrease", posso dirgli quale risposta caricare)
   let possibleAnswers = []; //array che conterrà i bottoni
   document.getElementById("bottoni").innerHTML = ""; //pulizia div "bottoni"
+
   for (i = 0; i < domande[posizione].incorrect_answers.length; i++) {
     //lunghezza dinamica (fix true/false issues)
     const newButton = document.createElement("button");
@@ -134,6 +133,7 @@ const risposte = (posizione, domande) => {
         // se clicco questop bottone vuol dire che la risposta è sbagliata -- pusho in risposte incorrette
         incorrette(domande[posizione]);
         counterIncrease();
+        clearInterval(timerInterval);
       };
     } else {
       newButton.onclick = () => {
@@ -144,6 +144,7 @@ const risposte = (posizione, domande) => {
     newButton.innerHTML = domande[posizione].incorrect_answers[i]; //resa dinamica con parametri in ingresso
     possibleAnswers.push(newButton); //push dell'array
   }
+
   const newButton = document.createElement("button");
   newButton.id = "bottone3";
   newButton.classList.add("bottone");
@@ -162,11 +163,15 @@ const risposte = (posizione, domande) => {
   }
   newButton.innerHTML = domande[posizione].correct_answer;
   possibleAnswers.push(newButton);
-  shuffle(possibleAnswers); // richiamo la funzione per mischiare l'array (copiata da internet)
+
+  // richiamo la funzione per mischiare l'array (copiata da internet)
+  shuffle(possibleAnswers);
+
+  // per ogni elemento lo aggiungo al div bottoni (dopo averli mischiati)
   possibleAnswers.forEach((element) => {
-    // per ogni elemento lo aggiungo al div bottoni (dopo averli mischiati)
     document.getElementById("bottoni").appendChild(element);
   });
+
   setTimeout(() => {
     if (posizione < domande.length - 1) {
       risposteIncorrette.push({});
@@ -175,7 +180,7 @@ const risposte = (posizione, domande) => {
       risposteIncorrette.push({});
       lastQuestion();
     }
-  }, 200000000);
+  }, 20000);
 };
 /*--------------funzioni varie che verranno riprese in risposte-----------------*/
 
@@ -204,7 +209,8 @@ const aggiungiClasseSelected = (event) => {
 };
 //AUMENTO DEL COUNTER
 const counterIncrease = () => {
-  counter++; //messo sopra counter++ cosi incrementa il valore prima di fare tutto
+  //messo sopra counter++ cosi incrementa il valore prima di fare tutto
+  counter++;
   document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
   titolo(counter, questions);
   risposte(counter, questions); //richiamo funzione inserendo i parametri delle domande e posizione aggiornata
@@ -336,6 +342,7 @@ function timer() {
 window.onload = () => {
   risposte(counter, questions);
   // inserisco parametri
+  document.getElementById("app").innerHTML;
   document.getElementById("domanda").innerHTML = "QUESTION " + (counter + 1);
   document.getElementById("totaleDomande").innerHTML = "/" + questions.length;
 

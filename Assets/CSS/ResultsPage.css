@@ -2,12 +2,12 @@ body {
   background-image: url(../images/bg.jpg);
   background-size: cover;
   padding: 3%;
-  margin-left: 2em;
   color: white;
   text-align: center;
   line-height: 1.5;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
+
 
 header {
   text-align: left;
@@ -36,12 +36,12 @@ body img {
 }
 
 .resultsbox-risposta1 {
-  margin: 11% 5%;
+  margin: 9% 5%;
 
 }
 
 .resultsbox-risposta2 {
-  margin: 11% 5%;
+  margin: 9% 5%;
   text-align: right;
 
 }
@@ -62,7 +62,6 @@ body img {
 }
 
 .resultscerchio {
-  margin: 0.5% 0.5%;
   text-align: center;
   padding-top: 0.1%;
 }
